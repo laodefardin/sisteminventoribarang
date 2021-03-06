@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2021 at 10:38 AM
+-- Generation Time: Mar 06, 2021 at 03:10 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -41,7 +41,7 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `namalengkap`, `username`, `password`, `gender`, `telp`, `gambar`) VALUES
-(3, 'LAODE MUH ZULFARDIN SYAH, SPD', '', '', 'Laki-laki', '082393448981', ''),
+(3, 'LAODE MUH ZULFARDIN SYAH, SPD', '1', '96de4eceb9a0c2b9b52c0b618819821b', 'Laki-laki', '082393448981', ''),
 (4, 'SUHERMAN', '', '', 'Laki-laki', '082393448980', ''),
 (5, 'fardin', '', '', 'Laki-laki', '082393448980', ''),
 (6, 'ammank', '', '', 'Laki-laki', '082132312312', ''),
@@ -77,15 +77,16 @@ INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, 
 (9, 'TKJ001', 'TANG CRIMPING', 'bagus', '-', '60', '60', '27-01-2021', 'img3445-1562580603.jpg', 'TKJ'),
 (11, 'TKJ002', 'Obeng Set', 'bagus', '-', '10', '10', '09-02-2021', 'TKJ0920211439th6c54fa3c359a7855c7b206d1660a511b.jpg', 'TKJ'),
 (12, 'TKJ003', 'LAN Tester ', 'bagus', 'OEM', '40', '40', '03-02-2021', 'TKJ0920211500thoem_lan_tester_alat_cek_kabel_lan_pendeteksi_aliran_dan_jaringan_komputer_full01_is3ivbpj.jpg', 'TKJ'),
-(13, 'TKJ004', 'Tang Crimping 2 in 1', 'bagus', '-', '30', '25', '09-02-2021', 'TKJ0920211502th13836901_39dc9ddb-ce67-4e7d-9941-a04fa027a33f_1761_3689-e1488018392328-1024x489-400x191.jpg', 'TKJ'),
+(13, 'TKJ004', 'Tang Crimping 2 in 1', 'bagus', '-', '30', '10', '09-02-2021', 'TKJ0920211502th13836901_39dc9ddb-ce67-4e7d-9941-a04fa027a33f_1761_3689-e1488018392328-1024x489-400x191.jpg', 'TKJ'),
 (14, 'TKJ005', 'Konektor RJ45 Cat 6 ', 'bagus', 'Belden ', '30', '30', '09-02-2021', 'TKJ0920211525th376802570cf6006fe019895923f991c8.jpg', 'TKJ'),
 (15, 'TKJ006', 'Kabel BELDEN Kabel LAN UTP Cat6 Grey 305m', 'bagus', 'Belden ', '5', '5', '30-12-2020', 'TKJ0920211528th1603792_f730718d-39ea-462a-8b80-7ae9a7547255_384_384.jpg', 'TKJ'),
 (16, 'TKJ007', 'Projector EB X 400 Proyektor 3300 Lumens', 'bagus', 'Epson', '5', '5', '09-02-2021', 'TKJ0920211530thabcec85db2bf3cef98a183917217b306.jpg', 'TKJ'),
 (17, 'TKJ008', 'LAPTOP Lenovo Ideapad', 'bagus', 'Lenovo', '50', '50', '09-02-2021', 'TKJ0920211537th60e8fa5e1e19bec588bc0f5a2fefa391.jpg', 'TKJ'),
-(18, 'TKJ009', 'Acer Aspire 4741G Intel Core i5', 'bagus', 'Acer', '30', '30', '04-02-2021', 'TKJ0920211543thdata.jpg', 'TKJ'),
-(19, 'TKJ010', 'Switch 5 Port TPLINK ', 'bagus', 'TP-Link', '40', '35', '03-02-2021', 'TKJ0920211545the06e04b8ea90a72a4c411e037ebd76ff.jpg', 'TKJ'),
+(18, 'TKJ009', 'Acer Aspire 4741G Intel Core i5', 'bagus', 'Acer', '30', '10', '04-02-2021', 'TKJ0920211543thdata.jpg', 'TKJ'),
+(19, 'TKJ010', 'Switch 5 Port TPLINK ', 'bagus', 'TP-Link', '40', '40', '03-02-2021', 'TKJ0920211545the06e04b8ea90a72a4c411e037ebd76ff.jpg', 'TKJ'),
 (20, 'TKJ011', 'TP-LINK SWITCH HUB 24 PORT', 'bagus', 'TP-Link', '10', '10', '03-02-2021', 'TKJ0920211546th355812705_971f9554-5bf1-41d6-a11d-84d996b60edc_640_640.jpg', 'TKJ'),
-(21, 'TKJ012', 'TP-LINK TL-WR840N WiFi Router ', 'bagus', 'TP-Link', '40', '40', '02-02-2021', 'TKJ0920211548thaf9cfa4c-6ca5-424d-bfcc-69c8b6df972f.jpg', 'TKJ');
+(21, 'TKJ012', 'TP-LINK TL-WR840N WiFi Router ', 'bagus', 'TP-Link', '40', '40', '02-02-2021', 'TKJ0920211548thaf9cfa4c-6ca5-424d-bfcc-69c8b6df972f.jpg', 'TKJ'),
+(22, 'TAV001', 'bag', 'Bagus', 'samsung', '90', '90', '06-03-2021', 'TAV0620211324thRobertson_screwdriver_set.jpg', 'TAV');
 
 -- --------------------------------------------------------
 
@@ -110,12 +111,7 @@ CREATE TABLE `barangkeluar` (
 --
 
 INSERT INTO `barangkeluar` (`idbarangkeluar`, `id_barang`, `jurusan`, `id_anggota`, `keterangan`, `tujuan`, `jumlah`, `tanggal`, `status`) VALUES
-(6, '9', 'TKJ', 3, 'asd', '', '5', '02-02-2021', '1'),
-(7, '9', 'TKJ', 3, 'AS', '', '5', '04-02-2021', '1'),
-(8, '12', 'TKJ', 3, 'i', 'a', '5', '18-02-2021', '1'),
-(9, '14', 'TKJ', 3, '', '', '5', '05-03-2021', '1'),
-(10, '19', 'TKJ', 4, 'as', 'Belajar', '5', '05-03-2021', '0'),
-(11, '13', 'TKJ', 10, 'adasd', 'ujian', '5', '06-03-2021', '0');
+(19, '13', 'TKJ', 10, 'qwe', 'qwe', '20', '06-03-2021', '2');
 
 -- --------------------------------------------------------
 
@@ -131,16 +127,6 @@ CREATE TABLE `barangmasuk` (
   `jumlah` varchar(100) NOT NULL,
   `tanggal_kembali` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `barangmasuk`
---
-
-INSERT INTO `barangmasuk` (`idbarangmasuk`, `idbarangkeluar`, `id_barang`, `peminjam`, `jumlah`, `tanggal_kembali`) VALUES
-(2, 6, 9, '3', '5', '02-02-2021'),
-(3, 7, 9, '3', '5', '04-02-2021'),
-(4, 8, 12, '3', '5', '18-02-2021'),
-(5, 9, 14, '3', '5', '05-03-2021');
 
 -- --------------------------------------------------------
 
@@ -218,12 +204,12 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `barangkeluar`
 --
 ALTER TABLE `barangkeluar`
-  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `barangmasuk`
 --

@@ -5,7 +5,15 @@
         <?php 
         if ($level === 'GURU'){ ?>
         <li class="nav-item">
-            <a href="guru" class="nav-link <?php if($halaman == 'Peminjaman Guru') echo"active" ?>">
+            <a href="daftarbarang" class="nav-link <?php if($halaman == 'daftar barang') echo"active" ?>">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Barang
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="peminjaman" class="nav-link <?php if($halaman == 'Peminjaman Guru') echo"active" ?>">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                     Peminjaman

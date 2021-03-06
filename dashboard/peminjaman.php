@@ -32,14 +32,14 @@ $id_anggota = $_SESSION['id_anggota'];
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Data Barang</h3>
-                        <a style="text-align: right;" class="btn bg-yellow btn-sm offset-sm-8"
-                            href="tambahbarangkeluar"> <i class="fa fa-plus"></i> Tambah</a>
+                        <h3 class="card-title">Data Peminjaman</h3>
+                        <!-- <a style="text-align: right;" class="btn bg-yellow btn-sm offset-sm-8"
+                            href="tambahbarangkeluar"> <i class="fa fa-plus"></i> Tambah</a> -->
 
-                        <a style="text-align: right;" class="btn bg-green btn-sm" href="print/export_excel1.php"
+                        <!-- <a style="text-align: right;" class="btn bg-green btn-sm" href="print/export_excel1.php"
                             target="_blank"> <i class="fa fa-print"></i> Excel</a>
                         <a style="text-align: right;" class="btn bg-red btn-sm" href="print/export_pdf1.php"
-                            target="_blank"> <i class="fa fa-print"></i> PDF</a>
+                            target="_blank"> <i class="fa fa-print"></i> PDF</a> -->
                     </div>
 
                     <!-- /.card-header -->
@@ -72,8 +72,15 @@ $id_anggota = $_SESSION['id_anggota'];
                                     <td><?= $data['namalengkap']; ?></td>
                                     <td><?= $data['keterangan']; ?></td>
                                     <td>
-                                        <span
-                                            class="btn btn-xs btn-<?= $data['status'] == 1 ? 'success' : 'danger' ?>"><?= $data['status'] == 1 ? 'sudah dikembalikan' : 'belum dikembalikan'; ?></span>
+                                    <?php
+                                    $status = $data['status'];
+                                    if($status === '0'){ ?>
+                                    <span class="btn btn-xs btn-danger">belum dikembalikan</span>
+                                    <?php }elseif ($status === '1') { ?>
+                                    <span class="btn btn-xs btn-success">sudah dikembalikan</span>
+                                    <?php }elseif ($status === '2') { ?>
+                                    <span class="btn btn-xs btn-warning">barang belum diambil</span>
+                                    <?php } ?>
                                     </td>
                                     <td>
                                         <?php
@@ -84,10 +91,17 @@ $id_anggota = $_SESSION['id_anggota'];
                                             onclick="return confirm('Anda Yakin ingin menghapus?');"><i
                                                 class="fa fa-trash"></i></a> -->
                                         <?php } else {?>
-                                        <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>"  target="_blank" class="btn btn-warning btn-xs"><i class="fa fa-print"></i></a>
-                                        <a href="editbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
-                                            class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                                        <a href="hapusbarangkeluar?id=<?= $data['idbarangkeluar']; ?>"
+                                        
+                                        <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>" target="_blank"
+                                            class="btn btn-warning btn-xs" data-toggle="tooltip"
+                                            data-placement="top" title="" data-original-title="Print"><i
+                                                class="fa fa-print"></i></a>
+                                        
+                                        <!-- <a href="editbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
+                                            class="btn btn-primary btn-xs" data-toggle="tooltip"
+                                            data-placement="top" title="" data-original-title="Edit"><i
+                                                class="fa fa-edit"></i></a> -->
+                                        <a href="hapusbarangguru?id=<?= $data['idbarangkeluar']; ?>"
                                             class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip"
                                             data-placement="top" title="" data-original-title="Hapus"><i
                                                 class="fa fa-trash"></i></a>

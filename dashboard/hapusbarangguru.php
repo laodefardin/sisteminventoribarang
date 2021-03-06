@@ -31,5 +31,5 @@ $proses = $koneksi->query($hapus);
 if ($proses) {
     $_SESSION['pesan'] = 'Hapus';
 }
-echo "<script> document.location.href='./barangkeluar';</script>";
+echo "<script> document.location.href='./peminjaman';</script>";
 die();

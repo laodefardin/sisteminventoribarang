@@ -77,9 +77,16 @@ to get the desired effect
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <div class="dropdown-divider"></div>
+            <?php
+            if ($level == 'GURU') {?>
+            <a href="profil-guru" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> Profile
+            </a>
+            <?php }else{ ?>
             <a href="profil" class="dropdown-item">
               <i class="fas fa-users mr-2"></i> Profile
             </a>
+            <?php } ?>
             <div class="dropdown-divider"></div>
             <a href="../logout" class="dropdown-item">
               <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
