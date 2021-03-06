@@ -6,7 +6,7 @@
 
 <!-- Main Footer -->
 <footer class="main-footer">
-  <strong>Copyright &copy; 2020 <a href="">SIB - Sistem Inventory Barang</a>.</strong> All rights
+  <strong>Copyright &copy; 2021 <a href="">SIB - Sistem Peminjaman Dan Peralatan Laboratorium SMKN 1 Papalang</a>.</strong> All rights
   reserved.
   <div class="float-right d-none d-sm-inline-block">
     <b>Version</b> 3.0.5
@@ -27,6 +27,8 @@
 <script src="../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
+<script src="../assets/js/sweetalert/sweetalert2.all.min.js"></script>
+<script src="../assets/js/myscript.js"></script>
 
 <!-- AdminLTE -->
 <script src="../assets/dist/js/adminlte.js"></script>
@@ -104,6 +106,11 @@
         }
       });
     });
+  });
+</script>
+<script>
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
 </body>

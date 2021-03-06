@@ -64,7 +64,7 @@ else{
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistem Inventory Barang</title>
+    <title>Sistem Peminjaman Barang</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -132,12 +132,15 @@ else{
                         <!-- /.col -->
                     </div>
                 </form>
+                <!-- <div class="text-center text-muted mt-3">
+                    Belum mempunyai akun? <a href="./sign-up" tabindex="-1">Sign up</a>
+                </div> -->
                 <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="daftarbarang" class="btn btn-block btn-danger">
-           Lihat Daftar Barang
-        </a>
-      </div>
+                    <p>- OR -</p>
+                    <a href="daftarbarang" class="btn btn-block btn-danger btn-sm">
+                        Lihat Daftar Barang
+                    </a>
+                </div>
                 <!-- 
                 <p class="mb-1">
                     <a href="forgot-password.html">I forgot my password</a>

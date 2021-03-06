@@ -7,14 +7,7 @@ if ($koneksi->connect_error) {
 
 $id = $_GET['id'];
 
-$query = "SELECT * FROM barang WHERE id_barang = '$id'";
-$sql = mysqli_query($koneksi, $query);
-$data = mysqli_fetch_array($sql);
-
-if (is_file("./img/barang/" . $data['gambar']))
-    unlink("./img/barang/" . $data['gambar']);
-    
-$hapus = "DELETE FROM barang WHERE id_barang = '$id'";
+$hapus = "DELETE FROM anggota WHERE id_anggota = '$id'";
 
 $proses = $koneksi->query($hapus);
 if ($proses) {
@@ -23,5 +16,5 @@ if ($proses) {
     //                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     //                 <h6><i class="icon fas fa-check"></i> Sukses! Data Berhasil Di hapus</h6></div>';
 }
-echo "<script> document.location.href='./barang';</script>";
+echo "<script> document.location.href='./anggota';</script>";
 die();

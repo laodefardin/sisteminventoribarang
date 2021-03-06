@@ -4,31 +4,29 @@ include "global_header.php";
 $level = $_SESSION['level'];
 if ($level === 'Administrator'){
 $query = mysqli_query($koneksi, "SELECT barangmasuk.*, 
-barang.id_barang, 
-barang.namabarang, 
-barangkeluar.idbarangkeluar, 
-barangkeluar.tanggal, 
-barangkeluar.status,
-barang.kodebarang 
+barang.*,
+barangkeluar.*,
+anggota.*
 FROM barangmasuk 
 INNER JOIN barang ON 
 barangmasuk.id_barang=barang.id_barang 
 INNER JOIN barangkeluar ON 
 barangkeluar.idbarangkeluar=barangmasuk.idbarangkeluar 
+INNER JOIN anggota ON
+anggota.id_anggota=barangmasuk.peminjam
 WHERE barangkeluar.status=1");    
 }else{
 $query = mysqli_query($koneksi, "SELECT barangmasuk.*, 
-barang.id_barang, 
-barang.namabarang, 
-barangkeluar.idbarangkeluar, 
-barangkeluar.tanggal, 
-barangkeluar.status,
-barang.kodebarang 
+barang.*,
+barangkeluar.*,
+anggota.*
 FROM barangmasuk 
 INNER JOIN barang ON 
 barangmasuk.id_barang=barang.id_barang 
 INNER JOIN barangkeluar ON 
 barangkeluar.idbarangkeluar=barangmasuk.idbarangkeluar 
+INNER JOIN anggota ON
+anggota.id_anggota=barangmasuk.peminjam
 WHERE barangkeluar.status=1 AND barangkeluar.jurusan = '$level'");
 }
 ?>
@@ -80,14 +78,13 @@ WHERE barangkeluar.status=1 AND barangkeluar.jurusan = '$level'");
                                     <td><?= $nomor_urut; ?></td>
                                     <td><?= $data['kodebarang']; ?></td>
                                     <td><?= $data['namabarang']; ?></td>
-                                    <td><?= $data['peminjam']; ?></td>
+                                    <td><?= $data['namalengkap']; ?></td>
                                     <td><?= $data['jumlah']; ?></td>
                                     <td><?= $data['tanggal']; ?></td>
                                     <td><?= $data['tanggal_kembali']; ?></td>
                                     
                                     <td>
-                                        <!-- <a href="editbarangmasuk?id=<?= $data['idbarangmasuk'];?>" class="btn btn-primary btn-xs"><i
-                                                class="fa fa-edit"></i></a> -->
+                                        <!-- <a href="print/printbarangmasuk?id=<?= $data['idbarangmasuk'];?>"  target="_blank" class="btn btn-warning btn-xs"><i class="fa fa-print"></i></a> -->
                                         <a href="hapusbarangmasuk?id=<?= $data['idbarangmasuk']; ?>"
                                             class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin ingin menghapus?');" ><i class="fa fa-trash"></i></a>
                                     </td>

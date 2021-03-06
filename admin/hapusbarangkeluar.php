@@ -26,9 +26,7 @@ $proses1 = $koneksi->query($update);
 $hapus = "DELETE FROM barangkeluar WHERE idbarangkeluar = '$id'";
 $proses = $koneksi->query($hapus);
 if ($proses) {
-    $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h6><i class="icon fas fa-check"></i> Sukses! Data Berhasil Di hapus</h6></div>';
+    $_SESSION['pesan'] = 'Hapus';
 }
 echo "<script> document.location.href='./barangkeluar';</script>";
 die();

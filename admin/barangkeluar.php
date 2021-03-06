@@ -4,9 +4,9 @@ include "global_header.php";
 $level = $_SESSION['level'];
 
 if ($level == 'Administrator'){
-    $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkeluar.id_barang, barangkeluar.peminjam, barangkeluar.jumlah, barangkeluar.jumlah, barangkeluar.tanggal, barangkeluar.status, barang.namabarang, barang.kodebarang FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang");
+    $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkeluar.id_barang, barangkeluar.jumlah, barangkeluar.jumlah, barangkeluar.tanggal, barangkeluar.status, barangkeluar.keterangan, barang.namabarang, barang.kodebarang, barang.kondisibarang, anggota.telp, anggota.namalengkap FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota");
 }else{
-$query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkeluar.id_barang, barangkeluar.peminjam, barangkeluar.jumlah, barangkeluar.jumlah, barangkeluar.tanggal, barangkeluar.status, barang.namabarang, barang.kodebarang FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang WHERE barangkeluar.jurusan = '$level'");
+$query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkeluar.id_barang, barangkeluar.jumlah, barangkeluar.jumlah, barangkeluar.tanggal, barangkeluar.status, barangkeluar.keterangan, barang.namabarang, barang.kodebarang, barang.kondisibarang, anggota.telp, anggota.namalengkap FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$level'");
 }
 ?>
 <!-- Main content -->
@@ -17,11 +17,16 @@ $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkelua
                 <?php
                 //menampilkan pesan jika ada pesan
                 if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
-                    echo $pesan = $_SESSION['pesan'];
-                    
+
+                    $pesan = $_SESSION['pesan'];
+
+                    echo '<div class="flash-data" data-flashdata="' . $_SESSION['pesan'] . '"></div>';
                 }
                 //mengatur session pesan menjadi kosong
+
                 $_SESSION['pesan'] = '';
+                // unset($_SESSION['pesan']);
+                // $cetak_pesan = '';
                 ?>
 
 
@@ -32,8 +37,10 @@ $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkelua
                         <a style="text-align: right;" class="btn bg-yellow btn-sm offset-sm-8"
                             href="tambahbarangkeluar"> <i class="fa fa-plus"></i> Tambah</a>
 
-                            <a style="text-align: right;" class="btn bg-green btn-sm" href="print/export_excel1.php" target="_blank"> <i class="fa fa-print"></i> Excel</a>
-                        <a style="text-align: right;" class="btn bg-red btn-sm" href="print/export_pdf1.php" target="_blank"> <i class="fa fa-print"></i> PDF</a>
+                        <a style="text-align: right;" class="btn bg-green btn-sm" href="print/export_excel1.php"
+                            target="_blank"> <i class="fa fa-print"></i> Excel</a>
+                        <a style="text-align: right;" class="btn bg-red btn-sm" href="print/export_pdf1.php"
+                            target="_blank"> <i class="fa fa-print"></i> PDF</a>
                     </div>
 
                     <!-- /.card-header -->
@@ -47,6 +54,7 @@ $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkelua
                                     <th>Jumlah (Unit)</th>
                                     <th>Tanggal Pinjam</th>
                                     <th>Nama Peminjam</th>
+                                    <th>Keterangan</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -62,7 +70,8 @@ $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkelua
                                     <td><?= $data['namabarang']; ?></td>
                                     <td><?= $data['jumlah']; ?></td>
                                     <td><?= $data['tanggal']; ?></td>
-                                    <td><?= $data['peminjam']; ?></td>
+                                    <td><?= $data['namalengkap']; ?></td>
+                                    <td><?= $data['keterangan']; ?></td>
                                     <td>
                                         <span
                                             class="btn btn-xs btn-<?= $data['status'] == 1 ? 'success' : 'danger' ?>"><?= $data['status'] == 1 ? 'sudah dikembalikan' : 'belum dikembalikan'; ?></span>
@@ -76,12 +85,15 @@ $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkelua
                                             onclick="return confirm('Anda Yakin ingin menghapus?');"><i
                                                 class="fa fa-trash"></i></a> -->
                                         <?php } else {?>
+                                        <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>"  target="_blank" class="btn btn-warning btn-xs"><i class="fa fa-print"></i></a>
                                         <a href="editbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
                                             class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                                         <a href="hapusbarangkeluar?id=<?= $data['idbarangkeluar']; ?>"
-                                            class="btn btn-danger btn-xs"
-                                            onclick="return confirm('Anda Yakin ingin menghapus?');"><i
+                                            class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip"
+                                            data-placement="top" title="" data-original-title="Hapus"><i
                                                 class="fa fa-trash"></i></a>
+
+
                                         <?php }; ?>
 
 

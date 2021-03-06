@@ -12,11 +12,16 @@ include "global_header.php";
                 <?php
                 //menampilkan pesan jika ada pesan
                 if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
-                    echo $pesan = $_SESSION['pesan'];
-                    
+
+                    $pesan = $_SESSION['pesan'];
+
+                    echo '<div class="flash-data" data-flashdata="' . $_SESSION['pesan'] . '"></div>';
                 }
                 //mengatur session pesan menjadi kosong
+
                 $_SESSION['pesan'] = '';
+                // unset($_SESSION['pesan']);
+                // $cetak_pesan = '';
                 ?>
 
 
@@ -52,10 +57,13 @@ include "global_header.php";
                                     <td><?= $data['gender']; ?></td>
                                     <td><?= $data['telp']; ?></td>
                                     <td>
-                                        <a href="editanggota?id=<?= $data['id_anggota'];?>" class="btn btn-primary btn-xs"><i
-                                                class="fa fa-edit"></i></a>
+                                        <a href="editanggota?id=<?= $data['id_anggota'];?>"
+                                            class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                                         <a href="hapusanggota?id=<?= $data['id_anggota']; ?>"
-                                            class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin ingin menghapus?');" ><i class="fa fa-trash"></i></a>
+                                            class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip"
+                                            data-placement="top" title="" data-original-title="Hapus"><i
+                                                class="fa fa-trash"></i></a>
+
                                     </td>
                                 </tr>
                                 <?php

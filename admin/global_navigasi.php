@@ -132,10 +132,10 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>Export</p>
                     </a>
-                    <a href="hapusdatabase" class="nav-link <?php if($halaman == 'Hapus Tabel/Datbase') echo "active" ?>">
+                    <!-- <a href="hapusdatabase" class="nav-link <?php if($halaman == 'Hapus Tabel/Datbase') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Hapus Table</p>
-                    </a>
+                    </a> -->
                 </li>
             </ul>
         </li>

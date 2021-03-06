@@ -103,6 +103,11 @@ $level = $_SESSION['level'];
                                             placeholder="Masukkan merek barang">
                                     </div>
                                     <div class="form-group">
+                                        <label>Kondisi Barang</label>
+                                        <input class="form-control" name="kondisibarang" id="harga" type="text"
+                                            placeholder="Masukkan kondisi barang">
+                                    </div>
+                                    <div class="form-group">
                                         <label>Unit</label>
                                         <input class="form-control" name="stok" id="stok" type="number"
                                             placeholder="Masukkan jumlah stok">
@@ -132,7 +137,7 @@ $level = $_SESSION['level'];
                                     </div>
 
                                     <div class="form-group form-actions">
-                                        <input class="btn btn-primary" name="tambah" type="submit" value="Update">
+                                        <input class="btn btn-primary" name="tambah" type="submit" value="Tambah">
                                         <input class="btn btn-danger" id="reset" type="reset" value="Batal"
                                             onclick="self.history.back()">
                                         <!-- <button class="btn btn-primary" name="submit" type="submit">
@@ -152,6 +157,7 @@ $level = $_SESSION['level'];
                 $kodebarang = $_POST['kodebarang'];
                 $jurusan = $_POST['jurusan'];
                 $namabarang = $_POST['namabarang'];
+                $kondisibarang = $_POST['kondisibarang'];
                 $merek  = $_POST['merek'];
                 $stok = $_POST['stok'];
                 $tahun  = $_POST['tahun'];
@@ -164,14 +170,16 @@ $level = $_SESSION['level'];
 
                 if (move_uploaded_file($tmp, $path)){
 
-                    $query = 'INSERT INTO barang (kodebarang, jurusan, namabarang, merek, stok, stoksisa, tahun, gambar) VALUES ("'.$kodebarang.'","'.$jurusan.'","'.$namabarang.'","'.$merek.'","'.$stok.'","'.$stok.'","'.$tahun.'","'.$gambar_baru.'")';
+                    $query = 'INSERT INTO barang (kodebarang, jurusan, namabarang, kondisibarang, merek, stok, stoksisa, tahun, gambar) VALUES ("'.$kodebarang.'","'.$jurusan.'","'.$namabarang.'", "'.$kondisibarang.'","'.$merek.'","'.$stok.'","'.$stok.'","'.$tahun.'","'.$gambar_baru.'")';
 
                     $proses = $koneksi->query($query);
 
                     if ($proses){
-                        $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible" role="hilang">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h6><i class="icon fas fa-check"></i> Sukses! Data Berhasil Di tambah</h6></div>';
+                        $_SESSION['pesan'] = 'Tambah';
+
+                    //     $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible" role="hilang">
+                    // <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    // <h6><i class="icon fas fa-check"></i> Sukses! Data Berhasil Di tambah</h6></div>';
                         echo "<script> document.location.href='./barang';</script>";
                     }
                 }

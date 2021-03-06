@@ -14,7 +14,7 @@ include "global_header.php";
                     <div class="card-header">Edit Barang Keluar</div>
                     <div class="card-body">
                         <?php
-                    $query = $koneksi->query("SELECT * FROM barangkeluar WHERE idbarangkeluar = '$_GET[id]'");
+                    $query = $koneksi->query("SELECT * FROM barangkeluar INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$_GET[id]'");
                     if(is_array($query) || is_object($query)){
                     foreach ($query as $data) {
                     ?>
@@ -48,8 +48,16 @@ include "global_header.php";
                                     </div>
                                     <div class="form-group">
                                         <label>Nama Peminjam</label>
-                                        <input class="form-control" name="peminjam" id="peminjam" type="text"
-                                            value="<?= $data['peminjam']; ?>" placeholder="Peminjam">
+                                        <select class="form-control" name="peminjam" id="peminjam" readonly>
+                                            <option value="<?= $data['id_anggota']?>"><?= $data['namalengkap']?></option>
+                                        </select>
+                                        <!-- <input class="form-control" name="peminjam" id="peminjam" type="text"
+                                            placeholder="Peminjam"> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tujuan</label>
+                                        <textarea class="form-control" name="tujuan" id="tujuan" cols="30" rows="2"><?= $data['tujuan']?></textarea>
+                                        <!-- <input class="form-control" name="jml_jam" id="jml_jam" type="text"> -->
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Peminjaman</label>
@@ -71,6 +79,10 @@ include "global_header.php";
                                             <option value="0" <?= $data['status'] == 0 ? 'selected' : ' ' ?>>Belum
                                                 Dikembalikan</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?=$data['keterangan'];?></textarea>
                                     </div>
                                     <div class="form-group form-actions">
                                         <input class="btn btn-primary" name="tambah" type="submit"

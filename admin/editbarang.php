@@ -8,7 +8,6 @@ include "global_header.php"; ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="card-header">Edit Barang</div>
                     <div class="card-body">
@@ -34,6 +33,11 @@ include "global_header.php"; ?>
                                         <label>Merek</label>
                                         <input class="form-control" name="merek" id="harga" type="text"
                                             value="<?= $data['merek']; ?>" placeholder="Masukkan merek barang">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Kondisi Barang</label>
+                                        <input class="form-control" name="kondisibarang" id="harga" type="text"
+                                            value="<?= $data['kondisibarang']; ?>" placeholder="Masukkan kondisi barang">
                                     </div>
                                     <div class="form-group">
                                         <label>Unit Awal</label>

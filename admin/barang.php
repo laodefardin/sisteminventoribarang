@@ -9,14 +9,21 @@ $level = $_SESSION['level'];
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
+
+
                 <?php
                 //menampilkan pesan jika ada pesan
                 if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
-                    echo $pesan = $_SESSION['pesan'];
-                    
+
+                    $pesan = $_SESSION['pesan'];
+
+                    echo '<div class="flash-data" data-flashdata="' . $_SESSION['pesan'] . '"></div>';
                 }
                 //mengatur session pesan menjadi kosong
+
                 $_SESSION['pesan'] = '';
+                // unset($_SESSION['pesan']);
+                // $cetak_pesan = '';
                 ?>
 
 
@@ -37,6 +44,7 @@ $level = $_SESSION['level'];
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Merek</th>
+                                    <th>Kondisi Barang</th>
                                     <th>Unit Awal</th>
                                     <th>Unit Sisa</th>
                                     <th>Tahun Masuk</th>
@@ -70,6 +78,7 @@ $level = $_SESSION['level'];
                                     <td><?= $data['kodebarang']; ?></td>
                                     <td><?= $data['namabarang']; ?></td>
                                     <td><?= $data['merek']; ?></td>
+                                    <td><?= $data['kondisibarang']; ?></td>
                                     <td><?= $data['stok']; ?></td>
                                     <td><?= $data['stoksisa']; ?></td>
                                     <td><?= $data['tahun']; ?></td>
@@ -77,10 +86,14 @@ $level = $_SESSION['level'];
                                         <?php echo "<a  class='btn btn-primary btn-sm' href='#largeModal' class='btn btn-default btn-small' id='custId' data-toggle='modal' data-id=" . $data['id_barang'] . "><i class='fa fa-eye'></i> Lihat Gambar</a>"; ?>
                                     </td>
                                     <td>
-                                        <a href="editbarang?id=<?= $data['id_barang'];?>" class="btn btn-primary btn-xs"><i
-                                                class="fa fa-edit"></i></a>
+                                        <a href="editbarang?id=<?= $data['id_barang'];?>"
+                                            class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+
                                         <a href="hapusbarang?id=<?= $data['id_barang']; ?>"
-                                            class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin ingin menghapus?');" ><i class="fa fa-trash"></i></a>
+                                            class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Hapus"><i class="fa fa-trash"></i></a>
+
+
                                     </td>
                                 </tr>
                                 <?php

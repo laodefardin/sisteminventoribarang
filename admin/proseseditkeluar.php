@@ -7,8 +7,10 @@ $jumlah = $_POST['jumlah'];
 $peminjam = $_POST['peminjam'];
 $tahun = $_POST['tahun'];
 $status = $_POST['status'];
+$keterangan = $_POST['keterangan'];
+$tujuan = $_POST['tujuan'];
 
-$update = "UPDATE barangkeluar SET id_barang='".$id_barang."', jumlah='".$jumlah."', peminjam='".$peminjam."', tanggal='".$tahun."', status='".$status."' WHERE idbarangkeluar = '".$id."' ";
+$update = "UPDATE barangkeluar SET id_barang='".$id_barang."', jumlah='".$jumlah."', id_anggota='".$peminjam."', tujuan='".$tujuan."', keterangan='".$keterangan."', tanggal='".$tahun."', status='".$status."' WHERE idbarangkeluar = '".$id."' ";
 $ganti = $koneksi->query($update);
 
 if ($status == 1){
@@ -30,9 +32,7 @@ if ($status == 1){
 
 
 if($ganti){
-    $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible" role="hilang">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h6><i class="icon fas fa-check"></i> Sukses! Data Berhasil Di tambah</h6></div>';
+    $_SESSION['pesan'] = 'Edit';
                     echo "<script> document.location.href='./barangkeluar';</script>";
 echo "<script> document.location.href='./barangkeluar';</script>";
 }else{

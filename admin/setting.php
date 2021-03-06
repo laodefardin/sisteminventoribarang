@@ -38,7 +38,7 @@ include "global_header.php"; ?>
                 //jika semua kondisi sudah benar, maka melakukan update kedatabase
                 //query UPDATE SET password = encrypt md5 password_baru
                 //kondisi WHERE id user = session id pada saat login, maka yang di ubah hanya user dengan id tersebut
-                $password_baru  = sha1($password_baru);
+                $password_baru  = md5(sha1(md5($password_baru)));
 
                  $update = $koneksi->query("UPDATE user SET password='$password_baru' WHERE user_id = '" . $_SESSION['id_user'] . "'");
                 if ($update) {

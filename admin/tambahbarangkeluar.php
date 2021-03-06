@@ -75,12 +75,17 @@ include "global_header.php"; ?>
                                             $sql = $koneksi->query("SELECT * FROM anggota");
                                             foreach ($sql as $data) :
                                             ?>
-                                            <option value="<?= $data['namalengkap']?>"><?= $data['namalengkap']?></option>
+                                            <option value="<?= $data['id_anggota']?>"><?= $data['namalengkap']?></option>
                                             <?php
                                                 endforeach; ?>
                                         </select>
                                         <!-- <input class="form-control" name="peminjam" id="peminjam" type="text"
                                             placeholder="Peminjam"> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tujuan</label>
+                                        <textarea class="form-control" name="tujuan" id="tujuan" cols="30" rows="2"></textarea>
+                                        <!-- <input class="form-control" name="jml_jam" id="jml_jam" type="text"> -->
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Pinjam</label>
@@ -92,6 +97,11 @@ include "global_header.php"; ?>
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
+                                        <!-- <input class="form-control" name="jml_jam" id="jml_jam" type="text"> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"></textarea>
                                         <!-- <input class="form-control" name="jml_jam" id="jml_jam" type="text"> -->
                                     </div>
                                     <div class="form-group form-actions">
@@ -118,6 +128,8 @@ include "global_header.php"; ?>
                 $jumlah = $_POST['jumlah'];
                 $peminjam = $_POST['peminjam'];
                 $tahun  = $_POST['tahun'];
+                $tujuan = $_POST['tujuan'];
+                $keterangan = $_POST['keterangan'];
 
                 $sql = "SELECT * FROM barang WHERE id_barang = '$id_barang'";
                 $query = mysqli_query($koneksi, $sql);
@@ -135,16 +147,14 @@ include "global_header.php"; ?>
             <?php
                 //proses
                 }else{
-                    $query = 'INSERT INTO barangkeluar (id_barang, jurusan, peminjam, jumlah, tanggal, status) VALUES ("'.$id_barang.'","'.$jurusan.'","'.$peminjam.'","'.$jumlah.'","'.$tahun.'",0)';
+                    $query = 'INSERT INTO barangkeluar (id_barang, jurusan, id_anggota, keterangan, tujuan, jumlah, tanggal, status) VALUES ("'.$id_barang.'","'.$jurusan.'","'.$peminjam.'", "'.$keterangan.'", "'.$tujuan.'", "'.$jumlah.'","'.$tahun.'",0)';
                     $proses = $koneksi->query($query);
                     if($proses){
                         //update stok
                         $update = "UPDATE barang SET stoksisa='".$sisa."' WHERE id_barang= '$id_barang' " ;
                         $sql = mysqli_query($koneksi, $update);
                     if ($sql){
-                    $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible" role="hilang">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h6><i class="icon fas fa-check"></i> Sukses! Data Berhasil Di tambah</h6></div>';
+                    $_SESSION['pesan'] = 'Tambah';
                     echo "<script> document.location.href='./barangkeluar';</script>";
                     }
                     }

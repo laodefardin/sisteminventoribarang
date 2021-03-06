@@ -8,7 +8,7 @@ $level = $_SESSION['level'];
   <div class="container-fluid">
     <div class="alert alert-success alert-dismissible">
       <h5><i class="icon fas fa-check"></i> Selamat Datang</h5>
-      SISTEM INVENTORY BARANG SMKN 1 PAPALANG
+      SISTEM PEMINJAMAN BARANG DAN PERALATAN LAB JURUSAN SMKN 1 PAPALANG
     </div>
     <div class="row">
       <?php 

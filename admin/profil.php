@@ -41,8 +41,7 @@ if(isset($_POST['submit'])){
                         </div>
 
                         <div class="col-md-9">
-                            <form action="" method="post" class="form-horizontal"
-                                enctype="multipart/form-data">
+                            <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="row" style="margin-bottom: 15px;">
                                     <span class="col-lg-2">Nama Lengkap</span>
                                     <div class="col-lg-4">
@@ -58,11 +57,11 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="row" style="margin-bottom: 15px;">
                                     <span class="col-lg-2">Level</span>
+
                                     <div class="col-lg-4">
-                                        <select class="form-control select2" name="level" id="level" readonly>
-                                            <option value="Administrator" <?php if($data['level'] == 'Administrator'){echo 'selected';} ?>>Administrator</option>
-                                            <option value="Karyawan" <?php if($data['level'] == 'Karyawan'){echo 'selected';} ?>>Karyawan</option>
-                                        </select>
+                                        <input type="text" class="form-control" id="level" name="level"
+                                            value="<?php echo $data['level']; ?>" readonly>
+
                                     </div>
                                 </div>
                                 <div class="row">
