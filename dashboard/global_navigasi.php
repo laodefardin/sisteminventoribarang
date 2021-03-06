@@ -111,11 +111,11 @@ if($level === 'GURU'){ ?>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="profil" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
+                    <a href="profil-guru" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Profil Guru</p>
                     </a>
-                    <a href="uploadfoto" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
+                    <a href="uploadfotoguru" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Upload Foto</p>
                     </a>

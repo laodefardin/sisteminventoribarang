@@ -4,17 +4,17 @@ include "global_header.php";
 if(isset($_POST['submit'])){
     $nama = $_POST['nama'];
     $username = $_POST['username'];
-    $level = $_POST['level'];
+    $nohp = $_POST['nohp'];
     
-    $update = "UPDATE user SET 
-    nama_lengkap = '$nama',
+    $update = "UPDATE anggota SET 
+    namalengkap = '$nama',
     username     = '$username',
-    level        = '$level'
-    WHERE user_id = '$_SESSION[id_user]'";
+    telp        = '$nohp'
+    WHERE id_anggota = '$_SESSION[id_anggota]'";
 
     mysqli_query($koneksi, $update) or die (mysqli_error());
     $_SESSION['pesan']='Profil Berhasil Di Update';
-    echo "<script type='text/javascript'>window.location = 'profil'</script>";
+    echo "<script type='text/javascript'>window.location = 'profil-guru'</script>";
 }
 ?>
 
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
         <div class="col-lg-12">
             <div class="card">
                 <?php
-                $profil = $koneksi->query("SELECT * FROM user WHERE user_id = '".$_SESSION['id_user']."'");
+                $profil = $koneksi->query("SELECT * FROM anggota WHERE id_anggota = '".$_SESSION['id_anggota']."'");
                 foreach ($profil as $data){
                 ?>
                 <div class="card-body">
@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
                             <img style="height: 200px" src="../img/anonim.png">
                             <?php } else {?>
                             <img style="height: 200px" src="./img/user/<?php echo $data['gambar']; ?>"> <?php }; ?>
-                            <center><a href="uploadfoto" class="btn btn-primary btn-xs" role="button">Ganti Foto</a>
+                            <center><a href="uploadfotoguru" class="btn btn-primary btn-xs" role="button">Ganti Foto</a>
                             </center>
                         </div>
 
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
                                     <span class="col-lg-2">Nama Lengkap</span>
                                     <div class="col-lg-4">
                                         <input type="text" class="form-control" id="nama" name="nama"
-                                            value='<?php echo $data['nama_lengkap']; ?>'
+                                            value='<?php echo $data['namalengkap']; ?>'
                                             placeholder="contoh : Masukkan nama anda">
                                     </div>
                                     <span class="col-lg-2">Username</span>
@@ -58,14 +58,22 @@ if(isset($_POST['submit'])){
                                     </div>
                                 </div>
                                 <div class="row" style="margin-bottom: 15px;">
-                                    <span class="col-lg-2">Level</span>
+                                    <span class="col-lg-2">No Hp</span>
 
                                     <div class="col-lg-4">
-                                        <input type="text" class="form-control" id="level" name="level"
-                                            value="<?php echo $data['level']; ?>" readonly>
-
+                                        <input type="text" class="form-control" id="nohp" name="nohp"
+                                            value="<?php echo $data['telp']; ?>">
                                     </div>
                                 </div>
+                                <!-- <div class="row" style="margin-bottom: 15px;">
+                                    <span class="col-lg-2">Jenis Kelamin</span>
+
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" id="gender" name="gender"
+                                            value="<?php echo $data['gender']; ?>" readonly>
+
+                                    </div>
+                                </div> -->
                                 <div class="row">
                                     <button type="submit" name="submit" class="btn btn-success btn-md pull-right"><i
                                             class="fa fa-save"></i> Simpan</button>

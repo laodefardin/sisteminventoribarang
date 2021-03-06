@@ -68,9 +68,11 @@
 
         // menampilkan data
         if ($level === 'Administrator'){
-            $data = mysqli_query($koneksi,"SELECT barangkeluar.idbarangkeluar, barangkeluar.id_barang, barangkeluar.jumlah, barangkeluar.jumlah, barangkeluar.tanggal, barangkeluar.status, barangkeluar.keterangan, barangkeluar.tujuan, barang.namabarang, barang.kodebarang, barang.kondisibarang, anggota.telp, anggota.namalengkap FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'");
+            $data = mysqli_query($koneksi,"SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'");
+        }elseif ($level === 'GURU') {
+            $data = mysqli_query($koneksi,"SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'");
         }else{
-            $data = mysqli_query($koneksi,"SELECT barangkeluar.idbarangkeluar, barangkeluar.id_barang, barangkeluar.jumlah, barangkeluar.jumlah, barangkeluar.tanggal, barangkeluar.status, barangkeluar.keterangan, barangkeluar.tujuan, barang.namabarang, barang.kodebarang, barang.kondisibarang, anggota.telp, anggota.namalengkap FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$level' AND idbarangkeluar = '$id'");
+            $data = mysqli_query($koneksi,"SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$level' AND idbarangkeluar = '$id'");
         }
         $no = 1;
 		while($d = mysqli_fetch_array($data)){
@@ -164,7 +166,22 @@
         </tr>
         <tr>
             <td><u><?= $d['namalengkap']; ?></u></td>
+            <?php
+            $sql = $koneksi->query("SELECT * FROM user");
+            $akun = $sql->fetch_assoc();
+            $h = $akun['nama_lengkap'];
+            $j =  $d['jurusan'];
+
+            if($j === 'Administrator'){ ?>
             <td style="padding-left: 200px;"><u>( <?= $nama_lengkap; ?> )</u></td>
+
+            <?php }else{
+             $sql = $koneksi->query("SELECT * FROM user WHERE level = '$j'");
+             $akun1 = $sql->fetch_assoc();    
+                ?>
+            <td style="padding-left: 200px;"><u>( <?= $akun1['nama_lengkap']; ?> )</u></td>
+            <?php } ?>
+
         </tr>
 
     </table><br>
