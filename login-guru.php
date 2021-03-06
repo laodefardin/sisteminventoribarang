@@ -29,10 +29,10 @@ if (isset($_POST["submit"])) {
 //   $password_sha1 = sha1($password);
   
 // cek apakah username dan password ada di tabel 
-  $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password_sha1'";
+  $query = "SELECT * FROM anggota WHERE username = '$username' AND password = '$password_sha1'";
   $result = $koneksi->query($query);
   $row = $result->num_rows;
-  $sql = $koneksi->query("SELECT * FROM user WHERE username = '$username'");
+  $sql = $koneksi->query("SELECT * FROM anggota WHERE username = '$username'");
   $akun = $sql->fetch_assoc();
 
   if ($row > 0 ){ // jika data ada
@@ -43,19 +43,15 @@ if (isset($_POST["submit"])) {
       // tutup koneksi dengan database MySQL
     mysqli_close($koneksi);
     $_SESSION["username"] = $akun["username"];
-    $_SESSION['nama_lengkap'] = $akun['nama_lengkap'];
-    $_SESSION["level"] = $akun["level"];
-    $_SESSION["id_user"] = $akun['user_id'];
+    $_SESSION['nama_lengkap'] = $akun['namalengkap'];
+    $_SESSION["level"] = "GURU";
+    // $_SESSION["id_user"] = $akun['user_id'];
     $_SESSION['gambar'] = $akun['gambar'];
     $_SESSION['id_anggota'] = $akun['id_anggota'];
 
     $level = $akun["level"];
-    if($level === 'GURU'){
-        echo "<script> document.location.href='dashboard/guru'; </script>";
-    }else{
+
         echo "<script> document.location.href='dashboard/index'; </script>";
-    }
-   
 
   }else{
    $_SESSION['pesan'] = 'Username dan Password Tidak ditemukan';
@@ -102,7 +98,7 @@ else{
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Silahkan Login disini.</p>
+                <p class="login-box-msg">Silahkan Login Guru disini.</p>
 
                 <form action="" method="post">
                     <div class="input-group mb-3">
@@ -140,16 +136,14 @@ else{
                         <!-- /.col -->
                     </div>
                 </form>
-                
+                <div class="text-center text-muted mt-3">
+                    Belum mempunyai akun? <a href="./sign-up" tabindex="-1">Sign up</a>
+                </div>
                 <div class="social-auth-links text-center mb-3">
-                <a href="daftarbarang" class="btn btn-block btn-danger btn-sm">
+                    <p>- OR -</p>
+                    <a href="daftarbarang" class="btn btn-block btn-danger btn-sm">
                         Lihat Daftar Barang
                     </a>
-                    <br>
-                    <p>- OR -</p>
-                    <div class="text-center text-muted mt-3">
-                    Login Guru <a href="./login-guru" tabindex="-1">Disini</a>
-                </div>
                 </div>
 <!--                 
                 <p class="mb-1">

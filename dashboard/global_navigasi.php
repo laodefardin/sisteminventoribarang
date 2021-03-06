@@ -2,6 +2,17 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+        <?php 
+        if ($level === 'GURU'){ ?>
+        <li class="nav-item">
+            <a href="guru" class="nav-link <?php if($halaman == 'Peminjaman Guru') echo"active" ?>">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Peminjaman
+                </p>
+            </a>
+        </li>
+        <?php } else { ?>
         <li class="nav-item has-treeview menu-open">
             <a href="index" class="nav-link <?php if($halaman == 'dashboard') echo"active" ?>">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -10,6 +21,7 @@
                 </p>
             </a>
         </li>
+
         <li
             class="nav-item has-treeview <?php if($halaman == 'barang' or $halaman == 'Tambah Barang' or $halaman == 'uploadfoto' or $halaman == 'profil' or $halaman == 'anggota' or $halaman == 'Tambah Anggota') echo 'menu-open'?>">
             <a href="#"
@@ -22,11 +34,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="barang" class="nav-link <?php if($halaman == 'barang' or $halaman == 'Tambah Barang') echo "active" ?>">
+                    <a href="barang"
+                        class="nav-link <?php if($halaman == 'barang' or $halaman == 'Tambah Barang') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Data Barang</p>
                     </a>
-                    <a href="anggota" class="nav-link <?php if($halaman == 'anggota' or $halaman == 'Tambah Anggota') echo "active" ?>">
+                    <a href="anggota"
+                        class="nav-link <?php if($halaman == 'anggota' or $halaman == 'Tambah Anggota') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Data Anggota</p>
                     </a>
@@ -66,10 +80,11 @@
                 </li>
             </ul>
         </li>
+        <?php }?>
 
         <?php 
         if ($level === 'Administrator'){ ?>
-            <li class="nav-item">
+        <li class="nav-item">
             <a href="users" class="nav-link <?php if($halaman == 'Manajemen Users') echo"active" ?>">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
@@ -80,8 +95,38 @@
         <?php } else { 
         }
         ?>
-        
 
+
+        <?php
+if($level === 'GURU'){ ?>
+        <li
+            class="nav-item has-treeview <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo 'menu-open'?>">
+            <a href="#"
+                class="nav-link <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo "active" ?>">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                    Pengaturan
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="profil" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Profil Guru</p>
+                    </a>
+                    <a href="uploadfoto" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Upload Foto</p>
+                    </a>
+                    <a href="setting" class="nav-link <?php if($halaman == 'setting') echo "active" ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Ubah Password</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <?php }else{ ?>
         <li
             class="nav-item has-treeview <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo 'menu-open'?>">
             <a href="#"
@@ -109,6 +154,7 @@
                 </li>
             </ul>
         </li>
+        <?php } ?>
 
         <?php 
         if ($level === 'Administrator'){ ?>

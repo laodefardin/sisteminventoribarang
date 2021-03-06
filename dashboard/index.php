@@ -69,8 +69,10 @@ $level = $_SESSION['level'];
           <a href="barangkeluar" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
-      <?php } else { ?>
-      <div class="col-lg-3 col-6">
+      <?php } elseif($level === 'GURU') { ?>
+
+      <?php }else{ ?>
+        <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
@@ -126,7 +128,13 @@ $level = $_SESSION['level'];
           <a href="barangkeluar" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
+
       <?php } ?>
+
+
+
+      <?php 
+      if ($level === 'Administrator'){?>
       <div class="col-lg-3 col-6">
         <div class="small-box bg-danger">
           <div class="inner">
@@ -144,11 +152,6 @@ $level = $_SESSION['level'];
           <a href="anggota" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
-
-
-      <?php 
-      if ($level === 'Administrator'){?>
-
       <div class="col-12 col-sm-6 col-md-2">
         <div class="info-box mb-3">
           <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>

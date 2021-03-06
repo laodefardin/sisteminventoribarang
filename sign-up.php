@@ -9,47 +9,64 @@ if (isset($_POST["submit"])) {
     $password = htmlentities(strip_tags(trim($_POST["password"])));
     $konfirpassword = htmlentities(strip_tags(trim($_POST["konfirpassword"])));
     $jeniskelamin = htmlentities(strip_tags(trim($_POST["jeniskelamin"])));
-include("koneksi.php");
+
+    include ('koneksi.php');
     session_start();
     $username = $koneksi->escape_string($username);
     $password = $koneksi->escape_string($password);
-
     $password_sha1 = md5(sha1(md5($password)));
-
-    $data = $koneksi->query("SELECT telp FROM anggota WHERE telp='$telp'");
-    if($password == $konfirpassword){
-
-    }
-// cek apakah username dan password ada di tabel 
-  $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password_sha1'";
-    $result = $koneksi->query($query);
-    $row = $result->num_rows;
-  $sql = $koneksi->query("SELECT * FROM user WHERE username = '$username'");
-    $akun = $sql->fetch_assoc();
-
-  if ($row > 0 ){ // jika data ada
-    $akun = $result->fetch_assoc();
-     // bebaskan memory 
-    mysqli_free_result($result);
     
-      // tutup koneksi dengan database MySQL
-    mysqli_close($koneksi);
-    $_SESSION["username"] = $akun["username"];
-    $_SESSION['nama_lengkap'] = $akun['nama_lengkap'];
-    $_SESSION["level"] = $akun["level"];
-    $_SESSION["id_user"] = $akun['user_id'];
-    $_SESSION['gambar'] = $akun['gambar'];
-    echo "<script> document.location.href='admin/index'; </script>";
+    if ($namalengkap && $username && $telp && $password && $konfirpassword && $jeniskelamin){
+        if($password == $konfirpassword){
+            $cek = $koneksi->query("SELECT * FROM anggota WHERE telp='$telp'");
+            $num = $cek->num_rows;
 
-  }else{
-   $_SESSION['pesan'] = 'Username dan Password Tidak ditemukan';
- }
-}
-else{
-  $username = "";
-  $password = "";
+            if($num == 0){
+                $insert = "INSERT INTO anggota (namalengkap, username, password, gender, telp) VALUES ('$namalengkap', '$username', '$password_sha1', '$jeniskelamin', '$telp')";
+                $proses = $koneksi->query($insert);
+
+                if ($proses){
+                    $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+                    Selamat... Anda berhasil Register! Silahkan Login <a href="index">Disini</a>
+                    </div>';
+                }else{
+                    $_SESSION['pesan'] = '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+                    Gagal melakukan Register, coba lagi!
+                    </div>';
+                }
+            }else{
+                $_SESSION['pesan'] = '<div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+                No Hp Akun sudah terdaftar, Silahkan Login <a href="login-guru">Disini</a>
+                </div>';
+            }
+        }else{
+            $_SESSION['pesan'] = '<div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+            Ulangi Password yang sama
+            </div>';
+        }
+    }else{
+        $_SESSION['pesan'] = '<div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+        Semua Kolom Wajib Anda Diisi
+        </div>';
+    }
+}else{
+$namalengkap = "";
+$telp = "";
+$username = "";
+$password = "";
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -84,13 +101,23 @@ else{
             <a href="index"><b>Data Pokok Peralatan </b>SMKN 1 PAPALANG</a>
         </div>
 
+        <?php
+                //menampilkan pesan jika ada pesan
+                if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
+                    echo $pesan = $_SESSION['pesan'];
+                    
+                }
+                //mengatur session pesan menjadi kosong
+                $_SESSION['pesan'] = '';
+                ?>
+
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Buat Akun Untuk Guru</p>
 
                 <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" name="namalengkap" class="form-control" placeholder="Nama Lengkap">
+                        <input type="text" name="namalengkap" class="form-control" placeholder="Nama Lengkap"  value="<?= $namalengkap ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -98,7 +125,7 @@ else{
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" name="telp" class="form-control" placeholder="Nomor HandPhone">
+                        <input type="number" name="telp" class="form-control" placeholder="Nomor HandPhone" value="<?= $telp ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-plus-square"></span>
@@ -106,7 +133,7 @@ else{
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <input type="text" name="username" class="form-control" placeholder="Username" value="<?= $username ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>

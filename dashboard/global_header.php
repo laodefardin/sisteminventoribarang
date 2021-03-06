@@ -106,10 +106,18 @@ to get the desired effect
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
+          <?php
+          $foto = $_SESSION['gambar'];
+          if ($foto===''){?>
+          <img class="img-circle elevation-2" src="../img/anonim.png">
+          <?php } else { ?>\
             <img src="./img/user/<?= ucfirst($_SESSION['gambar']); ?>" class="img-circle elevation-2" alt="User Image">
+          <?php }?>
+          
           </div>
           <div class="info">
             <a href="index" class="d-block"><?= ucfirst($_SESSION['nama_lengkap']); ?></a>
+            <a href="index" class="d-block"><?= ucfirst($_SESSION['level']); ?></a>
           </div>
         </div>
         <?php include 'global_navigasi.php';?>
