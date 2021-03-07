@@ -54,7 +54,11 @@ if (isset($_POST["submit"])) {
         echo "<script> document.location.href='dashboard/index'; </script>";
 
   }else{
-   $_SESSION['pesan'] = 'Username dan Password Tidak ditemukan';
+    $_SESSION['pesan'] = '<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+    Username dan Password Tidak ditemukan
+    </div>';
  }
 }
 else{
@@ -95,6 +99,15 @@ else{
         <div class="login-logo">
             <a href="index"><b>Data Pokok Peralatan </b>SMKN 1 PAPALANG</a>
         </div>
+        <?php
+                //menampilkan pesan jika ada pesan
+                if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
+                    echo $pesan = $_SESSION['pesan'];
+                    
+                }
+                //mengatur session pesan menjadi kosong
+                $_SESSION['pesan'] = '';
+                ?>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">

@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
                     $_SESSION['pesan'] = '<div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
-                    Selamat... Anda berhasil Register! Silahkan Login <a href="index">Disini</a>
+                    Selamat... Anda berhasil Register! Silahkan Login <a href="login-guru">Disini</a>
                     </div>';
                 }else{
                     $_SESSION['pesan'] = '<div class="alert alert-danger alert-dismissible">
@@ -117,7 +117,7 @@ $password = "";
 
                 <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" name="namalengkap" class="form-control" placeholder="Nama Lengkap"  value="<?= $namalengkap ?>">
+                        <input type="text" name="namalengkap" class="form-control" placeholder="Nama Lengkap dengan gelar"  value="<?= $namalengkap ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>

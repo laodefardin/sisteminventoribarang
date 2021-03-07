@@ -113,8 +113,8 @@ include "global_header.php"; ?>
                 if ($stok < $jumlah) {
                 ?>
             <script language="JavaScript">
-                alert('Oops! Jumlah pengeluaran lebih besar dari stok ... coba lagi');
-                document.location = './pinjambarang';
+                alert('Oops! Jumlah pengeluaran lebih besar dari stok ... coba lagi periksa stok barang yang ingin dipinjam');
+                document.location = './daftarbarang';
             </script>
             <?php
                 //proses
