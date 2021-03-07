@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
             $num = $cek->num_rows;
 
             if($num == 0){
-                $insert = "INSERT INTO anggota (namalengkap, username, password, gender, telp) VALUES ('$namalengkap', '$username', '$password_sha1', '$jeniskelamin', '$telp')";
+                $insert = "INSERT INTO anggota (namalengkap, username, password, gender, telp, gambar) VALUES ('$namalengkap', '$username', '$password_sha1', '$jeniskelamin', '$telp','')";
                 $proses = $koneksi->query($insert);
 
                 if ($proses){
