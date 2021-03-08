@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2021 at 03:10 PM
+-- Generation Time: Mar 08, 2021 at 11:10 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -41,14 +41,8 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `namalengkap`, `username`, `password`, `gender`, `telp`, `gambar`) VALUES
-(3, 'LAODE MUH ZULFARDIN SYAH, SPD', '1', '96de4eceb9a0c2b9b52c0b618819821b', 'Laki-laki', '082393448981', ''),
-(4, 'SUHERMAN', '', '', 'Laki-laki', '082393448980', ''),
-(5, 'fardin', '', '', 'Laki-laki', '082393448980', ''),
-(6, 'ammank', '', '', 'Laki-laki', '082132312312', ''),
-(7, 'rahmat', '', '', 'Laki-laki', '1238712831923', ''),
-(8, 'Muh Fadhil Supriadi', '', '', 'Laki-laki', '082393448989', ''),
-(9, 'Muh Fadhil Supriadi', '', '', 'Perempuan', '082393448987', ''),
-(10, 'fardin', 'gom', '96de4eceb9a0c2b9b52c0b618819821b', 'Laki-laki', '08239393123', '06032021091709Ciri Pria Setia Dilihat Dari Bentuk Wajah.jpg');
+(12, 'Laode Muh ZulFardin Syah, S.Pd', 'laodefardin', '96de4eceb9a0c2b9b52c0b618819821b', 'Laki-laki', '082393448980', ''),
+(13, 'Aslan, S.Pd', 'aslan', '96de4eceb9a0c2b9b52c0b618819821b', 'Perempuan', '09812312312', '');
 
 -- --------------------------------------------------------
 
@@ -74,11 +68,11 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, `merek`, `stok`, `stoksisa`, `tahun`, `gambar`, `jurusan`) VALUES
-(9, 'TKJ001', 'TANG CRIMPING', 'bagus', '-', '60', '60', '27-01-2021', 'img3445-1562580603.jpg', 'TKJ'),
+(9, 'TKJ001', 'TANG CRIMPING', 'bagus', '-', '60', '48', '27-01-2021', 'img3445-1562580603.jpg', 'TKJ'),
 (11, 'TKJ002', 'Obeng Set', 'bagus', '-', '10', '10', '09-02-2021', 'TKJ0920211439th6c54fa3c359a7855c7b206d1660a511b.jpg', 'TKJ'),
 (12, 'TKJ003', 'LAN Tester ', 'bagus', 'OEM', '40', '40', '03-02-2021', 'TKJ0920211500thoem_lan_tester_alat_cek_kabel_lan_pendeteksi_aliran_dan_jaringan_komputer_full01_is3ivbpj.jpg', 'TKJ'),
 (13, 'TKJ004', 'Tang Crimping 2 in 1', 'bagus', '-', '30', '10', '09-02-2021', 'TKJ0920211502th13836901_39dc9ddb-ce67-4e7d-9941-a04fa027a33f_1761_3689-e1488018392328-1024x489-400x191.jpg', 'TKJ'),
-(14, 'TKJ005', 'Konektor RJ45 Cat 6 ', 'bagus', 'Belden ', '30', '30', '09-02-2021', 'TKJ0920211525th376802570cf6006fe019895923f991c8.jpg', 'TKJ'),
+(14, 'TKJ005', 'Konektor RJ45 Cat 6 ', 'bagus', 'Belden ', '30', '19', '09-02-2021', 'TKJ0920211525th376802570cf6006fe019895923f991c8.jpg', 'TKJ'),
 (15, 'TKJ006', 'Kabel BELDEN Kabel LAN UTP Cat6 Grey 305m', 'bagus', 'Belden ', '5', '5', '30-12-2020', 'TKJ0920211528th1603792_f730718d-39ea-462a-8b80-7ae9a7547255_384_384.jpg', 'TKJ'),
 (16, 'TKJ007', 'Projector EB X 400 Proyektor 3300 Lumens', 'bagus', 'Epson', '5', '5', '09-02-2021', 'TKJ0920211530thabcec85db2bf3cef98a183917217b306.jpg', 'TKJ'),
 (17, 'TKJ008', 'LAPTOP Lenovo Ideapad', 'bagus', 'Lenovo', '50', '50', '09-02-2021', 'TKJ0920211537th60e8fa5e1e19bec588bc0f5a2fefa391.jpg', 'TKJ'),
@@ -111,7 +105,8 @@ CREATE TABLE `barangkeluar` (
 --
 
 INSERT INTO `barangkeluar` (`idbarangkeluar`, `id_barang`, `jurusan`, `id_anggota`, `keterangan`, `tujuan`, `jumlah`, `tanggal`, `status`) VALUES
-(19, '13', 'TKJ', 10, 'qwe', 'qwe', '20', '06-03-2021', '2');
+(1, '14', 'TKJ', 12, '123', 'adas', '11', '09-03-2021', '2'),
+(2, '9', 'TKJ', 12, '12', '12', '12', '09-03-2021', '0');
 
 -- --------------------------------------------------------
 
@@ -199,7 +194,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `barang`
 --
@@ -209,12 +204,12 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `barangkeluar`
 --
 ALTER TABLE `barangkeluar`
-  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `barangmasuk`
 --
 ALTER TABLE `barangmasuk`
-  MODIFY `idbarangmasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idbarangmasuk` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --

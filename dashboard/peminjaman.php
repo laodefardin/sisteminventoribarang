@@ -91,7 +91,10 @@ $id_anggota = $_SESSION['id_anggota'];
                                             onclick="return confirm('Anda Yakin ingin menghapus?');"><i
                                                 class="fa fa-trash"></i></a> -->
                                         <?php } elseif($status==='0') {?>
-
+                                            <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
+                                            target="_blank" class="btn btn-warning btn-xs" data-toggle="tooltip"
+                                            data-placement="top" title="" data-original-title="Print"><i
+                                                class="fa fa-print"></i></a>
                                         <?php }elseif($status ==='2'){ ?>
                                         <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
                                             target="_blank" class="btn btn-warning btn-xs" data-toggle="tooltip"

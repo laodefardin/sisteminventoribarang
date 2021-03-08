@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -61,7 +64,7 @@
         <?php 
 		// koneksi database
         include "../../koneksi.php";
-        session_start();
+        
         $id = $_GET['id'];
         $level = $_SESSION['level'];
         $nama_lengkap = $_SESSION['nama_lengkap'];

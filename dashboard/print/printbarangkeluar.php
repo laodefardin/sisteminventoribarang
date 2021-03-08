@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -61,18 +64,21 @@
         <?php 
 		// koneksi database
         include "../../koneksi.php";
-        session_start();
+        
         $id = $_GET['id'];
         $level = $_SESSION['level'];
         $nama_lengkap = $_SESSION['nama_lengkap'];
 
         // menampilkan data
         if ($level === 'Administrator'){
-            $data = mysqli_query($koneksi,"SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'");
+            $query = "SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'";
+            $data = mysqli_query($koneksi,$query);
         }elseif ($level === 'GURU') {
-            $data = mysqli_query($koneksi,"SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'");
+            $query = "SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'";
+            $data = mysqli_query($koneksi,$query);
         }else{
-            $data = mysqli_query($koneksi,"SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$level' AND idbarangkeluar = '$id'");
+            $query = "SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$level' AND idbarangkeluar = '$id'";
+            $data = mysqli_query($koneksi,$query);
         }
         $no = 1;
 		while($d = mysqli_fetch_array($data)){
