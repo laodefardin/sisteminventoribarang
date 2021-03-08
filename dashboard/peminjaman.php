@@ -72,15 +72,15 @@ $id_anggota = $_SESSION['id_anggota'];
                                     <td><?= $data['namalengkap']; ?></td>
                                     <td><?= $data['keterangan']; ?></td>
                                     <td>
-                                    <?php
+                                        <?php
                                     $status = $data['status'];
                                     if($status === '0'){ ?>
-                                    <span class="btn btn-xs btn-danger">belum dikembalikan</span>
-                                    <?php }elseif ($status === '1') { ?>
-                                    <span class="btn btn-xs btn-success">sudah dikembalikan</span>
-                                    <?php }elseif ($status === '2') { ?>
-                                    <span class="btn btn-xs btn-warning">barang belum diambil</span>
-                                    <?php } ?>
+                                        <span class="btn btn-xs btn-danger">belum dikembalikan</span>
+                                        <?php }elseif ($status === '1') { ?>
+                                        <span class="btn btn-xs btn-success">sudah dikembalikan</span>
+                                        <?php }elseif ($status === '2') { ?>
+                                        <span class="btn btn-xs btn-warning">barang belum diambil</span>
+                                        <?php } ?>
                                     </td>
                                     <td>
                                         <?php
@@ -90,13 +90,14 @@ $id_anggota = $_SESSION['id_anggota'];
                                             class="btn btn-danger btn-xs"
                                             onclick="return confirm('Anda Yakin ingin menghapus?');"><i
                                                 class="fa fa-trash"></i></a> -->
-                                        <?php } else {?>
-                                        
-                                        <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>" target="_blank"
-                                            class="btn btn-warning btn-xs" data-toggle="tooltip"
+                                        <?php } elseif($status==='0') {?>
+
+                                        <?php }elseif($status ==='2'){ ?>
+                                        <a href="print/printbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
+                                            target="_blank" class="btn btn-warning btn-xs" data-toggle="tooltip"
                                             data-placement="top" title="" data-original-title="Print"><i
                                                 class="fa fa-print"></i></a>
-                                        
+
                                         <!-- <a href="editbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
                                             class="btn btn-primary btn-xs" data-toggle="tooltip"
                                             data-placement="top" title="" data-original-title="Edit"><i
@@ -105,9 +106,7 @@ $id_anggota = $_SESSION['id_anggota'];
                                             class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip"
                                             data-placement="top" title="" data-original-title="Hapus"><i
                                                 class="fa fa-trash"></i></a>
-
-
-                                        <?php }; ?>
+                                        <?php } ?>
 
 
                                     </td>

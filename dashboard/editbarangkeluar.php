@@ -74,10 +74,9 @@ include "global_header.php";
                                     <div class="form-group">
                                         <label>Status Peminjaman</label>
                                         <select class="form-control" name="status" id="status">
-                                            <option value="1" <?= $data['status'] == 1 ? 'selected' : ' ' ?>>Sudah
-                                                Dikembalikan</option>
-                                            <option value="0" <?= $data['status'] == 0 ? 'selected' : ' ' ?>>Belum
-                                                Dikembalikan</option>
+                                        <option value="2" <?= $data['status'] == 2 ? 'selected' : ' ' ?>>barang belum diambil</option>
+                                            <option value="1" <?= $data['status'] == 1 ? 'selected' : ' ' ?>>Sudah Dikembalikan</option>
+                                            <option value="0" <?= $data['status'] == 0 ? 'selected' : ' ' ?>>Belum Dikembalikan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

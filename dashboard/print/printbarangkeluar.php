@@ -134,7 +134,7 @@
         kerusakan.</em>
     <br> <br> <br>
 
-    <table width="70%" cellpadding="0" cellspacing="0" style='border-collapse:collapse;margin:0 auto'>
+    <table width="98%" cellpadding="0" cellspacing="0" style='border-collapse:collapse;margin:0 auto'>
         <tr>
             <td><br></td>
             <td style="padding-left: 200px;"> Papalang, <?= $d['tanggal']; ?></td>
