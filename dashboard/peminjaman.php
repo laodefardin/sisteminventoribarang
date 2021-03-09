@@ -101,7 +101,7 @@ $id_anggota = $_SESSION['id_anggota'];
                                             data-placement="top" title="" data-original-title="Print"><i
                                                 class="fa fa-print"></i></a>
 
-                                        <!-- <a href="editbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
+                                        <!-- <a href=\"editbarangkeluar?id=<?= $data['idbarangkeluar'];?>"
                                             class="btn btn-primary btn-xs" data-toggle="tooltip"
                                             data-placement="top" title="" data-original-title="Edit"><i
                                                 class="fa fa-edit"></i></a> -->

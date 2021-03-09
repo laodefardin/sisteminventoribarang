@@ -73,8 +73,15 @@ $query = mysqli_query($koneksi, "SELECT barangkeluar.idbarangkeluar, barangkelua
                                     <td><?= $data['namalengkap']; ?></td>
                                     <td><?= $data['keterangan']; ?></td>
                                     <td>
-                                        <span
-                                            class="btn btn-xs btn-<?= $data['status'] == 1 ? 'success' : 'danger' ?>"><?= $data['status'] == 1 ? 'sudah dikembalikan' : 'belum dikembalikan'; ?></span>
+                                        <?php
+                                    $status = $data['status'];
+                                    if($status === '0'){ ?>
+                                        <span class="btn btn-xs btn-danger">belum dikembalikan</span>
+                                        <?php }elseif ($status === '1') { ?>
+                                        <span class="btn btn-xs btn-success">sudah dikembalikan</span>
+                                        <?php }elseif ($status === '2') { ?>
+                                        <span class="btn btn-xs btn-warning">barang belum diambil</span>
+                                        <?php } ?>
                                     </td>
                                     <td>
                                         <?php

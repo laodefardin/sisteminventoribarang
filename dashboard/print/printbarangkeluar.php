@@ -63,6 +63,7 @@ session_start();
     <table width="98%" border="1" cellpadding="0" cellspacing="0" style='border-collapse:collapse;margin:0 auto'>
         <?php 
 		// koneksi database
+        require_once('../../assets/bacadata/phpqrcode/qrlib.php'); 
         include "../../koneksi.php";
         
         $id = $_GET['id'];
@@ -159,15 +160,21 @@ session_start();
             <?php } ?>
         </tr>
         <tr>
-            <td><br></td>
-            <td style="padding-left: 200px;"><br></td>
-        </tr>
-        <tr>
-            <td><br></td>
-            <td style="padding-left: 200px;"><br></td>
-        </tr>
-        <tr>
-            <td><br></td>
+            <td>
+            <?php
+            $nama_file = $d['jurusan'].$d['tanggal'].$d['namalengkap'];
+            $qrvalue = "Tanggal".' '.$d['tanggal'].' '.$d['namalengkap'].' Telah meminjam barang di Lab '.$d['jurusan'].' Nama Barang : '.$d['namabarang']. 'Jumlah : '.$d['jumlah'].' Kondisi Barang : '.$d['kondisibarang'].' Tujuan Peminjaman : '.$d['tujuan'];
+            $tempDir = "../../assets/bacadata/pdfqrcodes/"; 
+            $codeContents = $qrvalue; 
+            $fileName = $nama_file.'.png'; 
+            $pngAbsoluteFilePath = $tempDir.$fileName; 
+            $urlRelativeFilePath = $tempDir.$fileName; 
+            if (!file_exists($pngAbsoluteFilePath)) { 
+                QRcode::png($codeContents, $pngAbsoluteFilePath); 
+            }
+            ?>
+            <img src="<?php echo $tempDir.$nama_file.'.png' ?> " style="width: 100px;">
+            <br></td>
             <td style="padding-left: 200px;"><br></td>
         </tr>
         <tr>
@@ -183,7 +190,7 @@ session_start();
 
             <?php }else{
              $sql = $koneksi->query("SELECT * FROM user WHERE level = '$j'");
-             $akun1 = $sql->fetch_assoc();    
+            $akun1 = $sql->fetch_assoc();    
                 ?>
             <td style="padding-left: 200px;"><u>( <?= $akun1['nama_lengkap']; ?> )</u></td>
             <?php } ?>
