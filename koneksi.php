@@ -2,11 +2,7 @@
  $dbhost = 'localhost';  //host untuk database, biasanya localhost
  $dbuser = 'root';  //username untuk mengakses database, jika dilokal biasanya 'root'
  $dbpass = '';  //password untuk mengakses databae, jika dilokal biasanya kosong
-<<<<<<< HEAD
  $dbname = 'sistembarangg';  //nama database yang akan digunakan
-=======
- $dbname = 'sistembarang';  //nama database yang akan digunakan
->>>>>>> 2103ebba7c57f97a4cafc6141fc3f352df6089da
 
 
  $koneksi = new mysqli($dbhost,$dbuser,$dbpass,$dbname) ;  //koneksi Database

@@ -47,11 +47,7 @@ if (isset($_POST["submit"])) {
     $_SESSION["level"] = $akun["level"];
     $_SESSION["id_user"] = $akun['user_id'];
     $_SESSION['gambar'] = $akun['gambar'];
-<<<<<<< HEAD
     // $_SESSION['id_anggota'] = $akun['id_anggota'];
-=======
-    $_SESSION['id_anggota'] = $akun['id_anggota'];
->>>>>>> 2103ebba7c57f97a4cafc6141fc3f352df6089da
 
     $level = $akun["level"];
     if($level === 'GURU'){
