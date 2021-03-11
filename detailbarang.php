@@ -8,9 +8,7 @@ if ($_POST['rowid']) {
     $result = $koneksi->query($sql);
      foreach ($result as $data) :
    ?>
-<center><img src="./admin/img/barang/<?= $data['gambar']; ?>" style="
-    width: 500px;
-" alt=""></center>
+<img src="./dashboard/img/barang/<?= $data['gambar']; ?>" style="width: 100%;margin: auto;display: block;">
 
 <?php endforeach; ?>
 <?php } ?>

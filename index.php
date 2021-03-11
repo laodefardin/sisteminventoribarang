@@ -47,10 +47,22 @@ if (isset($_POST["submit"])) {
     $_SESSION["level"] = $akun["level"];
     $_SESSION["id_user"] = $akun['user_id'];
     $_SESSION['gambar'] = $akun['gambar'];
-    echo "<script> document.location.href='admin/index'; </script>";
+    // $_SESSION['id_anggota'] = $akun['id_anggota'];
+
+    $level = $akun["level"];
+    if($level === 'GURU'){
+        echo "<script> document.location.href='dashboard/guru'; </script>";
+    }else{
+        echo "<script> document.location.href='dashboard/index'; </script>";
+    }
+   
 
   }else{
-   $_SESSION['pesan'] = 'Username dan Password Tidak ditemukan';
+    $_SESSION['pesan'] = '<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+    Username dan Password Tidak ditemukan
+    </div>';
  }
 }
 else{
@@ -64,7 +76,7 @@ else{
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistem Inventory Barang</title>
+    <title>Sistem Peminjaman Barang</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -88,9 +100,20 @@ else{
 
 <body class="hold-transition login-page">
     <div class="login-box">
+    <img src="img/SMK-Papalang Transparan.png" style="width: 130px;margin: auto;display: block;" alt="">
         <div class="login-logo">
             <a href="index"><b>Data Pokok Peralatan </b>SMKN 1 PAPALANG</a>
         </div>
+        <?php
+                //menampilkan pesan jika ada pesan
+                if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '') {
+                    echo $pesan = $_SESSION['pesan'];
+                    
+                }
+                //mengatur session pesan menjadi kosong
+                $_SESSION['pesan'] = '';
+                ?>
+
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
@@ -132,13 +155,18 @@ else{
                         <!-- /.col -->
                     </div>
                 </form>
+                
                 <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="daftarbarang" class="btn btn-block btn-danger">
-           Lihat Daftar Barang
-        </a>
-      </div>
-                <!-- 
+                <a href="daftarbarang" class="btn btn-block btn-danger btn-sm">
+                        Lihat Daftar Barang
+                    </a>
+                    <br>
+                    <p>- OR -</p>
+                    <div class="text-center text-muted mt-3">
+                    Login Guru <a href="./login-guru" tabindex="-1">Disini</a>
+                </div>
+                </div>
+<!--                 
                 <p class="mb-1">
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
