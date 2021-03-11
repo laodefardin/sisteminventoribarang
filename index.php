@@ -94,8 +94,7 @@ else{
 </head>
 <style>
     #iconeye {
-        cursor: pointer;
-    }
+        cursor: pointer; }
 </style>
 
 <body class="hold-transition login-page">
