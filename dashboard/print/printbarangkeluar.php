@@ -174,6 +174,7 @@ session_start();
             }
             ?>
             <img src="<?php echo $tempDir.$nama_file.'.png' ?> " style="width: 100px;">
+<<<<<<< HEAD
             <br>
             </td>
 
@@ -197,6 +198,10 @@ session_start();
             <br>
             </td>
 
+=======
+            <br></td>
+            <td style="padding-left: 200px;"><br></td>
+>>>>>>> 2103ebba7c57f97a4cafc6141fc3f352df6089da
         </tr>
         <tr>
             <td><u><?= $d['namalengkap']; ?></u></td>
