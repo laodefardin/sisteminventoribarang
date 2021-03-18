@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2021 at 04:27 AM
+-- Generation Time: Mar 18, 2021 at 08:08 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -70,23 +70,20 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, `merek`, `stok`, `stoksisa`, `tahun`, `gambar`, `jurusan`) VALUES
-(9, 'TKJ001', 'TANG CRIMPING', 'bagus', '-', '60', '60', '27-01-2021', 'img3445-1562580603.jpg', 'TKJ'),
-(11, 'TKJ002', 'Obeng Set', 'bagus', '-', '10', '0', '09-02-2021', 'TKJ0920211439th6c54fa3c359a7855c7b206d1660a511b.jpg', 'TKJ'),
-(12, 'TKJ003', 'LAN Tester ', 'bagus', 'OEM', '40', '40', '03-02-2021', 'TKJ0920211500thoem_lan_tester_alat_cek_kabel_lan_pendeteksi_aliran_dan_jaringan_komputer_full01_is3ivbpj.jpg', 'TKJ'),
-(13, 'TKJ004', 'Tang Crimping 2 in 1', 'bagus', '-', '30', '10', '09-02-2021', 'TKJ0920211502th13836901_39dc9ddb-ce67-4e7d-9941-a04fa027a33f_1761_3689-e1488018392328-1024x489-400x191.jpg', 'TKJ'),
-(14, 'TKJ005', 'Konektor RJ45 Cat 6 ', 'bagus', 'Belden ', '30', '19', '09-02-2021', 'TKJ0920211525th376802570cf6006fe019895923f991c8.jpg', 'TKJ'),
-(15, 'TKJ006', 'Kabel BELDEN Kabel LAN UTP Cat6 Grey 305m', 'bagus', 'Belden ', '5', '5', '30-12-2020', 'TKJ0920211528th1603792_f730718d-39ea-462a-8b80-7ae9a7547255_384_384.jpg', 'TKJ'),
-(16, 'TKJ007', 'Projector EB X 400 Proyektor 3300 Lumens', 'bagus', 'Epson', '5', '5', '09-02-2021', 'TKJ0920211530thabcec85db2bf3cef98a183917217b306.jpg', 'TKJ'),
-(17, 'TKJ008', 'LAPTOP Lenovo Ideapad', 'bagus', 'Lenovo', '50', '50', '09-02-2021', 'TKJ0920211537th60e8fa5e1e19bec588bc0f5a2fefa391.jpg', 'TKJ'),
-(18, 'TKJ009', 'Acer Aspire 4741G Intel Core i5', 'bagus', 'Acer', '30', '10', '04-02-2021', 'TKJ0920211543thdata.jpg', 'TKJ'),
-(19, 'TKJ010', 'Switch 5 Port TPLINK ', 'bagus', 'TP-Link', '40', '40', '03-02-2021', 'TKJ0920211545the06e04b8ea90a72a4c411e037ebd76ff.jpg', 'TKJ'),
-(20, 'TKJ011', 'TP-LINK SWITCH HUB 24 PORT', 'bagus', 'TP-Link', '10', '10', '03-02-2021', 'TKJ0920211546th355812705_971f9554-5bf1-41d6-a11d-84d996b60edc_640_640.jpg', 'TKJ'),
+(9, 'TKJ001', 'TANG CRIMPING', 'bagus', '-', '10', '5', '27-01-2021', 'WhatsApp Image 2021-03-12 at 3.57.07 PM.jpeg', 'TKJ'),
+(11, 'TKJ002', 'Obeng Set', 'bagus', '-', '10', '10', '09-02-2021', 'TKJ0920211439th6c54fa3c359a7855c7b206d1660a511b.jpg', 'TKJ'),
+(12, 'TKJ003', 'LAN Tester ', 'bagus', 'OEM', '20', '20', '03-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.07 PM (1).jpeg', 'TKJ'),
+(13, 'TKJ004', 'Tang Crimping 2 in 1', 'bagus', '-', '15', '15', '09-02-2021', 'TKJ0920211502th13836901_39dc9ddb-ce67-4e7d-9941-a04fa027a33f_1761_3689-e1488018392328-1024x489-400x191.jpg', 'TKJ'),
+(14, 'TKJ005', 'Konektor RJ45 Cat 6 ', 'bagus', 'Belden ', '10', '10', '09-02-2021', 'TKJ0920211525th376802570cf6006fe019895923f991c8.jpg', 'TKJ'),
+(15, 'TKJ006', 'Kabel BELDEN Kabel LAN UTP Cat6 Grey 305m', 'bagus', 'Belden ', '5', '5', '30-12-2020', 'WhatsApp Image 2021-03-12 at 3.57.06 PM.jpeg', 'TKJ'),
+(16, 'TKJ007', 'Projector EB X 400 Proyektor 3300 Lumens', 'bagus', 'Epson', '2', '2', '09-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM.jpeg', 'TKJ'),
+(17, 'TKJ008', 'LAPTOP Lenovo Ideapad', 'bagus', 'Lenovo', '50', '50', '09-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM (1).jpeg', 'TKJ'),
+(18, 'TKJ009', 'Acer Intel Core i3', 'bagus', 'Acer', '20', '20', '04-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM (2).jpeg', 'TKJ'),
+(19, 'TKJ010', 'Switch 5 Port TPLINK ', 'bagus', 'TP-Link', '15', '15', '03-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.04 PM.jpeg', 'TKJ'),
+(20, 'TKJ011', 'D-Link 8-Port 10/100 Desktop Switch', 'Baik', 'D-Link', '5', '5', '', 'WhatsApp Image 2021-03-12 at 3.57.04 PM (1).jpeg', 'TKJ'),
 (21, 'TKJ012', 'TP-LINK TL-WR840N WiFi Router ', 'bagus', 'TP-Link', '40', '40', '02-02-2021', 'TKJ0920211548thaf9cfa4c-6ca5-424d-bfcc-69c8b6df972f.jpg', 'TKJ'),
-(22, 'TAV001', 'bag', 'Bagus', 'samsung', '90', '90', '06-03-2021', 'TAV0620211324thRobertson_screwdriver_set.jpg', 'TAV'),
 (23, 'TLAS001', 'Lemari alat', 'Baik', '', '2', '2', '10-03-2007', '1.jpg', 'TLAS'),
 (24, 'TLAS002', 'Meja guru', 'Baik', '', '3', '3', '', '2.jpg', 'TLAS'),
-(25, 'TBSM001', 'a', '1', '1', '1', '1', '10-03-2021', 'TBSM1020211312th1.jpg', 'TBSM'),
-(26, 'TKR001', '1', '1', '1', '1', '1', '10-03-2021', 'TKR1020211314th1.jpg', 'TKR'),
 (28, 'TLAS003', 'Meja praktek', 'Baik', '', '2', '2', '10-03-2006', 'TLAS1020211325thScreenshot_2.jpg', 'TLAS'),
 (29, 'TLAS004', 'Mesin las TIG/GMAW', 'Baik', 'Multipro 300 G-KR', '1', '1', '10-03-2020', 'TLAS1020211326thScreenshot_3.jpg', 'TLAS'),
 (30, 'TLAS005', 'Mesin Las SMAW', 'Baik', 'General BX1-300-2', '1', '1', '10-03-2013', 'TLAS1020211328thScreenshot_4.jpg', 'TLAS'),
@@ -107,7 +104,63 @@ INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, 
 (45, 'TLAS016', 'Lemari dokumen', 'Baik', 'Krisbow', '1', '1', '11-03-2014', 'TLAS1120210419thScreenshot_5.jpg', 'TLAS'),
 (46, 'TLAS017', 'Pemanas elektroda', 'Baik', 'Toyoda', '1', '1', '11-03-2016', 'TLAS1120210420thScreenshot_6.jpg', 'TLAS'),
 (47, 'TLAS018', 'Alat pemotong besi plat', 'Baik', '', '1', '1', '', 'TLAS1120210422thScreenshot_7.jpg', 'TLAS'),
-(48, 'TLAS019', 'Palu Konde', 'Baik', 'Tekiro, Krisbow', '3', '3', '11-03-2015', 'TLAS1120210426thScreenshot_8.jpg', 'TLAS');
+(48, 'TLAS019', 'Palu Konde', 'Baik', 'Tekiro, Krisbow', '3', '3', '11-03-2015', 'TLAS1120210426thScreenshot_8.jpg', 'TLAS'),
+(49, 'TKJ013', 'Rotary Pengupas Kabel LAN Cutter Stripper Utp Punch Down Tool Modular', 'Baik', '', '10', '10', '', 'TKJ1220210906thWhatsApp Image 2021-03-12 at 3.57.06 PM (1).jpeg', 'TKJ'),
+(50, 'TKJ014', 'LinkSys  WiFi Router', 'Baik', 'LinkSys', '3', '3', '', 'TKJ1220210910thWhatsApp Image 2021-03-12 at 3.57.03 PM.jpeg', 'TKJ'),
+(51, 'TKJ015', 'Linksys RE1000 Wireless-N Range Extender', 'Baik', 'Linksys ', '4', '4', '', 'TKJ1220210911thWhatsApp Image 2021-03-12 at 3.57.03 PM (1).jpeg', 'TKJ'),
+(52, 'TKJ016', 'Microtik Motherboard', 'Baik', 'Microtik ', '15', '15', '', 'TKJ1220210912thWhatsApp Image 2021-03-12 at 3.57.04 PM (2).jpeg', 'TKJ'),
+(53, 'TKJ017', 'Portable 3g/4g Wireless N Router', 'Baik', 'TP-Link', '5', '5', '', 'TKJ1220210913thWhatsApp Image 2021-03-12 at 3.57.04 PM (3).jpeg', 'TKJ'),
+(54, 'TKJ018', 'Portabel TPLink Wireless N Router', 'Baik', 'TPLink ', '5', '5', '', 'TKJ1220210914thWhatsApp Image 2021-03-12 at 3.57.04 PM (4).jpeg', 'TKJ'),
+(55, 'TKJ019', 'Printer Canon ', 'Baik', 'Canon', '1', '1', '', 'TKJ1220210915thWhatsApp Image 2021-03-12 at 3.57.05 PM (3).jpeg', 'TKJ'),
+(56, 'TKJ020', 'Komputer ', 'Baik', '', '7', '7', '', 'TKJ1220210915thWhatsApp Image 2021-03-12 at 3.57.05 PM (4).jpeg', 'TKJ'),
+(57, 'TKJ021', 'Mouse Logitek', 'Baik', 'Logitek', '25', '25', '', 'TKJ1220210916thWhatsApp Image 2021-03-12 at 3.57.06 PM (2).jpeg', 'TKJ'),
+(58, 'TBSM001', 'Tools set', 'Baik', '', '2', '2', '', 'TBSM1220210920thWhatsApp Image 2021-03-12 at 4.19.57 PM.jpeg', 'TBSM'),
+(59, 'TBSM002', 'Compression Tester', 'Baik', 'Grip-On', '4', '4', '', 'TBSM1220210921thWhatsApp Image 2021-03-12 at 4.21.24 PM.jpeg', 'TBSM'),
+(60, 'TBSM003', 'Impact', 'Baik', 'One', '2', '2', '', 'TBSM1220210922thWhatsApp Image 2021-03-12 at 4.22.03 PM.jpeg', 'TBSM'),
+(61, 'TBSM004', 'Hand Tools Kunci Momen ', 'Baik', 'Tekiro', '3', '3', '', 'TBSM1220210923thWhatsApp Image 2021-03-12 at 4.22.57 PM.jpeg', 'TBSM'),
+(62, 'TBSM005', 'Digital Multimeter UX 37 TR', 'Baik', 'Heles', '2', '2', '', 'TBSM1220210925thWhatsApp Image 2021-03-12 at 4.23.54 PM (1).jpeg', 'TBSM'),
+(63, 'TBSM006', 'Mikrometer 25-50x0.01mm', 'Baik', '', '4', '4', '', 'TBSM1220210935thWhatsApp Image 2021-03-12 at 4.35.46 PM.jpeg', 'TBSM'),
+(64, 'TBSM007', 'Mikrometer 75-100x0.01mm', 'Baik', '', '4', '4', '', 'TBSM1220210937thWhatsApp Image 2021-03-12 at 4.35.46 PM (1).jpeg', 'TBSM'),
+(65, 'TBSM008', 'Digital Tachometer ', 'Baik', '', '3', '3', '', 'TBSM1220210939thWhatsApp Image 2021-03-12 at 4.38.01 PM.jpeg', 'TBSM'),
+(66, 'TBSM009', 'Valve Spring Compressor', 'Baik', 'GarTech', '1', '1', '', 'TBSM1220210941thWhatsApp Image 2021-03-12 at 4.40.09 PM.jpeg', 'TBSM'),
+(67, 'TBSM010', 'Oil Pressure Tester', 'Baik', 'GarTech', '1', '1', '', 'TBSM1220210942thWhatsApp Image 2021-03-12 at 4.42.03 PM.jpeg', 'TBSM'),
+(68, 'TBSM011', 'Grip On', 'Baik', '', '1', '1', '', 'TBSM1220210943thWhatsApp Image 2021-03-12 at 4.43.03 PM.jpeg', 'TBSM'),
+(69, 'TBSM012', 'Scan Tool', 'Baik', '', '2', '2', '', 'TBSM1220210945thWhatsApp Image 2021-03-12 at 4.45.05 PM.jpeg', 'TBSM'),
+(70, 'TBSM013', 'Ragung', 'Baik', '', '3', '3', '', 'TBSM1220210946thWhatsApp Image 2021-03-12 at 4.45.43 PM.jpeg', 'TBSM'),
+(71, 'TBSM014', 'Full Injection Sistem Trainer', 'Baik', '', '1', '1', '', 'TBSM1220210947thWhatsApp Image 2021-03-12 at 4.46.26 PM.jpeg', 'TBSM'),
+(72, 'TBSM015', 'Compresor', 'Baik', '', '1', '1', '', 'TBSM1220210948thWhatsApp Image 2021-03-12 at 4.47.58 PM.jpeg', 'TBSM'),
+(73, 'TBSM016', 'Engine Sepeda Motor 4 Tak On Stand (Non Live)', 'Baik', '', '1', '1', '', 'TBSM1220210949thWhatsApp Image 2021-03-12 at 4.48.41 PM.jpeg', 'TBSM'),
+(74, 'TBSM017', 'Motor Mio', 'Baik', 'Yamaha', '1', '1', '', 'TBSM1220210950thWhatsApp Image 2021-03-12 at 4.50.13 PM.jpeg', 'TBSM'),
+(75, 'TBSM018', 'Tool Box ', 'Baik', '', '2', '2', '', 'TBSM1220210951thWhatsApp Image 2021-03-12 at 4.50.48 PM.jpeg', 'TBSM'),
+(76, 'TBSM019', 'Motorcycle Charging System Simulator', 'Baik', '', '1', '1', '', 'TBSM1220210952thWhatsApp Image 2021-03-12 at 4.51.56 PM.jpeg', 'TBSM'),
+(77, 'TBSM020', 'Press Bass Elektrik', 'Baik', '', '1', '1', '', 'TBSM1220210953thWhatsApp Image 2021-03-12 at 4.53.33 PM.jpeg', 'TBSM'),
+(78, 'TBSM021', 'Ux 78TR Multimeter', '', '', '7', '7', '', 'TBSM1220210959thWhatsApp Image 2021-03-12 at 4.58.51 PM.jpeg', 'TBSM'),
+(79, 'TBSM022', 'Hand Tools Pressure Gauge', 'Baik', 'Tekiro', '3', '3', '', 'TBSM1220211000thWhatsApp Image 2021-03-12 at 4.59.34 PM.jpeg', 'TBSM'),
+(80, 'TKR001', 'Trainer Toyota WT-i ', 'Baik', '', '1', '1', '', 'TKR1220211001thWhatsApp Image 2021-03-12 at 5.01.36 PM.jpeg', 'TKR'),
+(81, 'TKR002', 'Trainer Bensin Motor Kijang 5k', 'Baik', '', '1', '1', '', 'TKR1220211002thWhatsApp Image 2021-03-12 at 5.02.38 PM.jpeg', 'TKR'),
+(82, 'TKR003', 'Trainer Mesin Solar Isuzu Panther', 'Baik', '', '1', '1', '', 'TKR1220211003thWhatsApp Image 2021-03-12 at 5.03.33 PM.jpeg', 'TKR'),
+(83, 'TKR004', 'Mobil Kijang 7k', 'Baik', '', '1', '1', '', 'TKR1220211004thWhatsApp Image 2021-03-12 at 5.04.30 PM.jpeg', 'TKR'),
+(84, 'TKR005', 'Mobil Inova', 'Baik', '', '1', '1', '', 'TKR1220211005thWhatsApp Image 2021-03-12 at 5.05.17 PM.jpeg', 'TKR'),
+(85, 'TKR006', 'Trainer Motor Stater Car Start-Charging System Test KIT-012', 'Baik', '', '2', '2', '', 'TKR1220211007thWhatsApp Image 2021-03-12 at 5.06.20 PM.jpeg', 'TKR'),
+(86, 'TKR007', 'KIT-014 Charging System Test', 'Baik', '', '1', '1', '', 'TKR1220211008thWhatsApp Image 2021-03-12 at 5.07.43 PM.jpeg', 'TKR'),
+(87, 'TKR008', 'Full Injection Fault Tester KIT-056', 'Baik', '', '1', '1', '', 'TKR1220211010thWhatsApp Image 2021-03-12 at 5.09.02 PM.jpeg', 'TKR'),
+(88, 'TKR009', 'KIT-008 Automotive Sensor Measuring Test', 'Baik', '', '1', '1', '', 'TKR1220211011thWhatsApp Image 2021-03-12 at 5.10.44 PM.jpeg', 'TKR'),
+(89, 'TKR010', 'KIT-009 Autormotive Elektric Circuit Test', 'Baik', '', '1', '1', '', 'TKR1220211012thWhatsApp Image 2021-03-12 at 5.11.36 PM.jpeg', 'TKR'),
+(90, 'TKR011', 'CAS Aki', '', 'Krisbow', '1', '1', '', 'TKR1220211013thWhatsApp Image 2021-03-12 at 5.12.49 PM.jpeg', 'TKR'),
+(91, 'TKR012', '5 Piece Tune-up Kit', 'Baik', 'Krisbow', '1', '1', '', 'TKR1220211014thWhatsApp Image 2021-03-12 at 5.14.03 PM.jpeg', 'TKR'),
+(92, 'TKR013', 'Bulloks Automotive Diagnostic Tool', 'Baik', 'Bulloks', '1', '1', '12-10-2020', 'TKR1220211016thWhatsApp Image 2021-03-12 at 5.15.12 PM.jpeg', 'TKR'),
+(93, 'TKR014', 'Tool Box ', 'Baik', '', '2', '2', '12-11-2019', 'TKR1220211017thWhatsApp Image 2021-03-12 at 5.17.02 PM.jpeg', 'TKR'),
+(94, 'TKR015', 'Car A/C Recharge & Recovery Machine Model : ARM-280', 'Baik', '', '1', '1', '25-11-2020', 'TKR1220211019thWhatsApp Image 2021-03-12 at 5.18.07 PM.jpeg', 'TKR'),
+(95, 'TAV001', 'Aktuator/Penyedot Timah', 'Baik', '', '25', '25', '', 'TAV1320211402thWhatsApp Image 2021-03-13 at 12.57.04 PM.jpeg', 'TAV'),
+(96, 'TAV002', 'Obeng Plat', 'Baik', '', '20', '20', '', 'TAV1320211403thWhatsApp Image 2021-03-13 at 12.57.05 PM.jpeg', 'TAV'),
+(97, 'TAV003', 'Obeng Bunga (+)', 'Baik', '', '25', '25', '', 'TAV1320211405thWhatsApp Image 2021-03-13 at 12.57.06 PM.jpeg', 'TAV'),
+(98, 'TAV004', 'Solder', 'Baik', 'Tekiro', '26', '26', '', 'TAV1320211406thWhatsApp Image 2021-03-13 at 12.57.10 PM.jpeg', 'TAV'),
+(99, 'TAV005', 'Timah Solder', 'Baik', '', '50', '50', '', 'TAV1320211408thWhatsApp Image 2021-03-13 at 12.57.15 PM.jpeg', 'TAV'),
+(100, 'TAV006', 'Basic Electronik Trainer', 'Baik', '', '5', '5', '', 'TAV1320211538thWhatsApp Image 2021-03-13 at 1.36.56 PM.jpeg', 'TAV'),
+(101, 'TAV007', 'Tang Lancip', 'Baik', '', '25', '25', '', 'TAV1320211538thWhatsApp Image 2021-03-13 at 12.57.13 PM.jpeg', 'TAV'),
+(102, 'TAV008', 'Tang kombinasi', 'Baik', '', '25', '25', '', 'TAV1320211539thWhatsApp Image 2021-03-13 at 12.57.12 PM.jpeg', 'TAV'),
+(103, 'TAV009', 'Tang Potong', 'Baik', '', '10', '10', '', 'TAV1320211541thWhatsApp Image 2021-03-13 at 12.57.15 PM (1).jpeg', 'TAV'),
+(104, 'TAV010', 'Avometer', 'Baik', '', '25', '25', '', 'TAV1320211543thWhatsApp Image 2021-03-13 at 1.30.40 PM.jpeg', 'TAV');
 
 -- --------------------------------------------------------
 
@@ -126,6 +179,13 @@ CREATE TABLE `barangkeluar` (
   `tanggal` varchar(100) NOT NULL,
   `status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barangkeluar`
+--
+
+INSERT INTO `barangkeluar` (`idbarangkeluar`, `id_barang`, `jurusan`, `id_anggota`, `keterangan`, `tujuan`, `jumlah`, `tanggal`, `status`) VALUES
+(6, '9', 'TKJ', 12, '', '1', '5', '12-03-2021', '2');
 
 -- --------------------------------------------------------
 
@@ -219,13 +279,13 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `barangkeluar`
 --
 ALTER TABLE `barangkeluar`
-  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `barangmasuk`

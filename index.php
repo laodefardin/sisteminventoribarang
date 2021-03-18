@@ -94,13 +94,13 @@ else{
 </head>
 <style>
     #iconeye {
-        cursor: pointer; 
-        }
+        cursor: pointer;
+    }
 </style>
 
 <body class="hold-transition login-page">
     <div class="login-box">
-    <img src="img/SMK-Papalang Transparan.png" style="width: 130px;margin: auto;display: block;" alt="">
+        <img src="img/SMK-Papalang Transparan.png" style="width: 130px;margin: auto;display: block;" alt="">
         <div class="login-logo">
             <a href="index"><b>Data Pokok Peralatan </b>SMKN 1 PAPALANG</a>
         </div>
@@ -155,18 +155,19 @@ else{
                         <!-- /.col -->
                     </div>
                 </form>
-                
+
                 <div class="social-auth-links text-center mb-3">
-                <a href="daftarbarang" class="btn btn-block btn-danger btn-sm">
+                    <a href="daftarbarang" class="btn btn-block btn-danger btn-sm">
                         Lihat Daftar Barang
                     </a>
                     <br>
                     <p>- OR -</p>
                     <div class="text-center text-muted mt-3">
-                    Login Guru <a href="./login-guru" tabindex="-1">Disini</a>
+                        Login Guru <a href="./login-guru" tabindex="-1">Disini</a>
+                    </div>
                 </div>
-                </div>
-<!--                 
+
+                <!--                 
                 <p class="mb-1">
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
@@ -174,29 +175,73 @@ else{
                     <a href="register.html" class="text-center">Register a new membership</a>
                 </p> -->
             </div>
+
             <!-- /.login-card-body -->
         </div>
-    </div>
-    <!-- /.login-box -->
+        <div class="text-center text-muted mt-3">
+            Info <a href='#largeModal' id='custId' data-toggle='modal' data-id=" . $data['id_barang'] . "> Kontak</a>
+        </div>
 
-    <!-- jQuery -->
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="assets/dist/js/adminlte.min.js"></script>
-    <script>
-        function show() {
-            var nilai = document.getElementById('password').type;
-            if (nilai == 'password') {
-                document.getElementById('password').type = 'text';
-                document.getElementById('iconeye').innerHTML = '<i class= "fas fa-eye-slash"></i>';
-            } else {
-                document.getElementById('password').type = 'password';
-                document.getElementById('iconeye').innerHTML = '<i class= "fas fa-eye"></i>';
+        <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Kontak Admin</h4>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fetched-data"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                        <!-- <button class="btn btn-primary" type="button">Save changes</button> -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- /.login-box -->
+
+        <!-- jQuery -->
+        <script src="assets/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="assets/dist/js/adminlte.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#largeModal').on('show.bs.modal', function (e) {
+                    var rowid = $(e.relatedTarget).data('id');
+                    //menggunakan fungsi ajax untuk pengambilan data
+                    $.ajax({
+                        type: 'post',
+                        url: 'detailkontak.php',
+                        data: 'rowid=' + rowid,
+                        success: function (data) {
+                            $('.fetched-data').html(data); //menampilkan data ke dalam modal
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            function show() {
+                var nilai = document.getElementById('password').type;
+                if (nilai == 'password') {
+                    document.getElementById('password').type = 'text';
+                    document.getElementById('iconeye').innerHTML = '<i class= "fas fa-eye-slash"></i>';
+                } else {
+                    document.getElementById('password').type = 'password';
+                    document.getElementById('iconeye').innerHTML = '<i class= "fas fa-eye"></i>';
+                }
             }
-        }
-    </script>
+        </script>
 </body>
 
 </html>
