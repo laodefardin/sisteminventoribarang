@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2021 at 08:08 AM
+-- Generation Time: Mar 19, 2021 at 12:12 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -94,9 +94,9 @@ INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, 
 (35, 'TLAS010', 'Brander pemotong 2014, 2015', 'Baik', 'Prohex, Aldo', '2', '2', '10-03-2014', 'TLAS1020211334thScreenshot_9.jpg', 'TLAS'),
 (36, 'TLAS011', 'Ragum', 'Baik', 'Wipro, Selery', '12', '12', '', 'TLAS1020211335thScreenshot_10.jpg', 'TLAS'),
 (37, 'TLAS012', 'Tool box Plat besi', 'Baik', 'Krisbow', '3', '3', '10-03-2010', 'TLAS1020211336thScreenshot_11.jpg', 'TLAS'),
-(38, 'TPHP001', 'Wajan', 'Baik', '', '4', '4', '10-03-2010', 'TPHP1020211340thWajan-besar.jpg', 'TPHP'),
+(38, 'TPHP001', 'Wajan', 'Baik', '', '4', '4', '10-03-2010', 'WhatsApp Image 2021-03-18 at 10.08.43 PM (2).jpeg', 'TPHP'),
 (39, 'TPHP002', 'Panci', 'Baik', '', '10', '10', '10-03-2010', 'TPHP1020211343thimages.jpg', 'TPHP'),
-(40, 'TPHP003', 'Mangkok', 'Baik', '', '22', '22', '10-03-2010', 'TPHP1020211343thdata.jpeg', 'TPHP'),
+(40, 'TPHP003', 'Mangkok', 'Baik', '', '22', '22', '10-03-2010', 'WhatsApp Image 2021-03-18 at 10.08.43 PM.jpeg', 'TPHP'),
 (41, 'TPHP004', 'Nampan', 'Baik', '', '9', '9', '10-03-2010', 'TPHP1020211345the17524f69de1ea20e98a6c0025e4a1ef.jpg', 'TPHP'),
 (42, 'TLAS013', 'Kipas angin', 'Baik', 'Tornado Wall Fan', '1', '1', '11-03-2013', 'TLAS1120210413thScreenshot_2.jpg', 'TLAS'),
 (43, 'TLAS014', 'Laptop', 'Baik', 'Acer', '1', '1', '11-03-2013', 'TLAS1120210416thScreenshot_3.jpg', 'TLAS'),
@@ -160,7 +160,21 @@ INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, 
 (101, 'TAV007', 'Tang Lancip', 'Baik', '', '25', '25', '', 'TAV1320211538thWhatsApp Image 2021-03-13 at 12.57.13 PM.jpeg', 'TAV'),
 (102, 'TAV008', 'Tang kombinasi', 'Baik', '', '25', '25', '', 'TAV1320211539thWhatsApp Image 2021-03-13 at 12.57.12 PM.jpeg', 'TAV'),
 (103, 'TAV009', 'Tang Potong', 'Baik', '', '10', '10', '', 'TAV1320211541thWhatsApp Image 2021-03-13 at 12.57.15 PM (1).jpeg', 'TAV'),
-(104, 'TAV010', 'Avometer', 'Baik', '', '25', '25', '', 'TAV1320211543thWhatsApp Image 2021-03-13 at 1.30.40 PM.jpeg', 'TAV');
+(104, 'TAV010', 'Avometer', 'Baik', '', '25', '25', '', 'TAV1320211543thWhatsApp Image 2021-03-13 at 1.30.40 PM.jpeg', 'TAV'),
+(105, 'TPHP005', 'Kulkas Pendingin', 'Baik', 'Sharp', '1', '1', '', 'TPHP1820211543thWhatsApp Image 2021-03-18 at 10.08.42 PM.jpeg', 'TPHP'),
+(106, 'TPHP006', 'Kompor', 'Baik', 'Rinnai', '3', '3', '', 'TPHP1820211544thWhatsApp Image 2021-03-18 at 10.08.43 PM (1).jpeg', 'TPHP'),
+(107, 'TPHP007', 'Ulekan', 'Baik', '', '3', '3', '', 'TPHP1820211548thWhatsApp Image 2021-03-18 at 10.08.43 PM (3).jpeg', 'TPHP'),
+(108, 'TPHP008', 'Spatula', 'Baik', '', '5', '5', '', 'TPHP1820211549thWhatsApp Image 2021-03-18 at 10.08.42 PM (1).jpeg', 'TPHP'),
+(109, 'TPHP009', 'Penjepit', 'Baik', '', '7', '7', '', 'TPHP1820211549thWhatsApp Image 2021-03-18 at 10.08.42 PM (2).jpeg', 'TPHP'),
+(110, 'TPHP010', 'Ayakan tepung', 'Baik', '', '10', '10', '', 'TPHP1820211551thWhatsApp Image 2021-03-18 at 10.08.43 PM (4).jpeg', 'TPHP'),
+(111, 'TPHP011', 'Mesin fermentasi roti', 'Baik', '', '1', '1', '', 'TPHP1920210123thWhatsApp Image 2021-03-18 at 10.53.19 PM.jpeg', 'TPHP'),
+(112, 'TPHP012', 'Mixer', 'Baik', '', '1', '1', '', 'TPHP1920210123thWhatsApp Image 2021-03-18 at 10.53.46 PM.jpeg', 'TPHP'),
+(113, 'TPHP013', 'Oven pengering', 'Baik', '', '1', '1', '', 'TPHP1920210124thWhatsApp Image 2021-03-18 at 10.54.12 PM.jpeg', 'TPHP'),
+(114, 'TPHP014', 'Dispenser sirup or jus', 'Baik', '', '1', '1', '', 'TPHP1920210124thWhatsApp Image 2021-03-18 at 10.54.29 PM.jpeg', 'TPHP'),
+(115, 'TPHP015', 'Kompor 4 mata', 'Baik', '', '1', '1', '', 'TPHP1920210130thWhatsApp Image 2021-03-19 at 8.25.18 AM.jpeg', 'TPHP'),
+(116, 'TPHP016', 'Vaccum sealer', 'Baik', '', '1', '1', '', 'TPHP1920210131thWhatsApp Image 2021-03-19 at 8.25.48 AM.jpeg', 'TPHP'),
+(117, 'TPHP017', 'Sealer manual', 'Baik', '', '1', '1', '', 'TPHP1920210131thWhatsApp Image 2021-03-19 at 8.25.48 AM (1).jpeg', 'TPHP'),
+(118, 'TPHP018', 'Sealer', 'Baik', '', '1', '1', '', 'TPHP1920210131thWhatsApp Image 2021-03-19 at 8.25.48 AM (2).jpeg', 'TPHP');
 
 -- --------------------------------------------------------
 
@@ -279,7 +293,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `barangkeluar`
