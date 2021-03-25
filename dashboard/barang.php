@@ -3,6 +3,7 @@ $halaman = 'barang';
 include "global_header.php"; 
 // $query = query("SELECT * FROM barang");
 $level = $_SESSION['level'];
+$jurusan = $_SESSION['nama_lengkap'];
 ?>
 <!-- Main content -->
 <div class="content">
@@ -47,7 +48,6 @@ $level = $_SESSION['level'];
                                     <th>Kondisi Barang</th>
                                     <th>Unit Awal</th>
                                     <th>Unit Sisa</th>
-                                    <th>Tahun Pengadaan</th>
                                     <th>Gambar</th>
                                     <th>Action</th>
                                 </tr>
@@ -56,20 +56,8 @@ $level = $_SESSION['level'];
                                 <?php
                                 if($level === 'Administrator'){
                                     $query = $koneksi->query("SELECT * FROM barang");
-                                }else if($level === 'TKJ'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TKJ'");
-                                }else if($level === 'TAV'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TAV'");
-                                }else if($level === 'TPHP'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TPHP'");
-                                }else if($level === 'TBSM'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TBSM'");
-                                }else if($level === 'TKR'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TKR'");
-                                }else if($level === 'TLAS'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TLAS'");
-                                }else if($level === 'DPIB'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'DPIB'");
+                                }else{
+                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = '$jurusan'");
                                 }
                         $nomor_urut = 1;
                         foreach ($query as $data) : ?>
@@ -81,7 +69,6 @@ $level = $_SESSION['level'];
                                     <td><?= $data['kondisibarang']; ?></td>
                                     <td><?= $data['stok']; ?></td>
                                     <td><?= $data['stoksisa']; ?></td>
-                                    <td><?= $data['tahun']; ?></td>
                                     <td>
                                         <?php echo "<a  class='btn btn-primary btn-sm' href='#largeModal' class='btn btn-default btn-small' id='custId' data-toggle='modal' data-id=" . $data['id_barang'] . "><i class='fa fa-eye'></i> Lihat Gambar</a>"; ?>
                                     </td>

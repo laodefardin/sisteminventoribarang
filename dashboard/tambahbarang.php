@@ -2,42 +2,30 @@
 $halaman = 'Tambah Barang';
 include "global_header.php";
 $level = $_SESSION['level'];
+$jurusan = $_SESSION['nama_lengkap'];
 ?>
 
 <?php
 // mengambil data barang dengan kode paling besar
-    if ($level === 'Administrator'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang");
-    $huruf = "BRG";
-    }else if ($level === 'TKJ'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'TKJ'");
-    $huruf = "TKJ";
-    }else if ($level === 'TAV'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'TAV'");
-    $huruf = "TAV";
-    }else if ($level === 'TKR'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'TKR'");
-    $huruf = "TKR";
-    }else if ($level === 'TBSM'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'TBSM'");
-    $huruf = "TBSM";
-    }else if ($level === 'TLAS'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'TLAS'");
-    $huruf = "TLAS";
-    }else if ($level === 'TPHP'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'TPHP'");
-    $huruf = "TPHP";
-    }else if ($level === 'DPIB'){
-    $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = 'DPIB'");
-    $huruf = "DPIB";
+
+    $query_user = $koneksi->query("SELECT * FROM user WHERE nama_lengkap = '$jurusan' ");
+    foreach ($query_user as $user) {
+        echo '<br>';
+        if ($level === 'Administrator'){
+            $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang");
+            $huruf = "BRG";
+        }else{
+        $query = mysqli_query($koneksi, "SELECT max(kodebarang) as kodeTerbesar FROM barang WHERE jurusan = '$jurusan'");
+        $huruf = "$jurusan";
+        }   
     }
-	
+
 	$data = mysqli_fetch_array($query);
 	$kodeBarang = $data['kodeTerbesar'];
 
     // mengambil angka dari kode barang terbesar, menggunakan fungsi substr
 	// dan diubah ke integer dengan (int)
-    if($level === 'TKJ' && 'TAV' && 'TKR'){
+    if($jurusan === 'TKJ' && 'TAV' && 'TKR'){
     $urutan = (int) substr($kodeBarang, 3, 3);
     }else{
         $urutan = (int) substr($kodeBarang, 4, 3);
@@ -67,13 +55,13 @@ $level = $_SESSION['level'];
             <div class="col-lg-12">
 
                 <div class="card">
-                    <div class="card-header">Tambah Barang <?php echo $level ?></div>
+                    <div class="card-header">Tambah Barang <?php echo $jurusan ?></div>
                     <div class="card-body">
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-4">
                                     <?php 
-                                if ($level === 'Administrator' ){ ?>
+                                    if ($level === 'Administrator' ){ ?>
                                     <div class="form-group">
                                         <label>Jurusan</label>
                                         <select name="jurusan" id="jurusan" class="form-control">
@@ -86,15 +74,14 @@ $level = $_SESSION['level'];
                                             <option value="DPIB">DPIB</option>
                                         </select>
                                     </div>
-                                    <?php } else { $level = $_SESSION['level'];?>
+                                    <?php } else {?>
+                                    
                                     <div class="form-group">
                                         <label>Jurusan</label>
-                                    <input class="form-control" name="jurusan" id="jurusan" type="text"
-                                        value="<?php echo $level ?>" readonly>
+                                        <input class="form-control" name="jurusan" id="jurusan" type="text"
+                                        value="<?php echo $jurusan ?>" readonly>
+                                        </div>
                                     <?php } ?>
-                                    </div>
-
-                                    
                                     <div class="form-group">
                                         <label>Nama Barang</label>
                                         <input class="form-control" name="namabarang" id="nama" type="text"
@@ -190,7 +177,7 @@ $level = $_SESSION['level'];
                 $img = $_FILES['foto']['name'];
                 $tmp = $_FILES['foto']['tmp_name'];
 
-                $gambar_baru = $level.date('dYHiS').$img;
+                $gambar_baru = $jurusan.date('dYHiS').$img;
 
                 $path = "./img/barang/".$gambar_baru;
 

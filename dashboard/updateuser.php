@@ -1,5 +1,5 @@
 <?php 
-$halaman = 'Edit User';
+$halaman = 'Edit Jurusan';
 include "global_header.php"; ?>
 
 
@@ -23,21 +23,29 @@ include "global_header.php"; ?>
                                     <div class="form-group">
                                         <label>Username</label>
                                         <input class="form-control" name="username" id="username" type="text"
-                                            value="<?= $data['username']; ?>" readonly>
+                                            value="<?= $data['username']; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Nama Lengkap</label>
                                         <input class="form-control" name="nama_lengkap" id="nama_lengkap" type="text"
-                                            value="<?= $data['nama_lengkap']; ?>">
+                                            value="<?= $data['nama_lengkap']; ?>" placeholder='Masukkan nama Singkatan Jurusan dengan huruf kapital CONTOH = TKJ'>
                                     </div>
                                     <div class="form-group">
-                                        <label>Jurusan</label>
+                                        <label>Level</label>
                                         <input class="form-control" name="level" id="level" type="text"
                                             value="<?= $data['level']; ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Password Baru</label>
                                         <input class="form-control" name="password" id="password" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama Kepala Jurusan</label>
+                                        <input class="form-control" name="namakajur" value='<?= $data['nama_kajur']; ?>' id="namakajur" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nip Kajur</label>
+                                        <input class="form-control" value='<?= $data['nip_kajur']; ?>' name="nipkajur" id="nipkajur" type="text">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Konfirmasi Password </label>

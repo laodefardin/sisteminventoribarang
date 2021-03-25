@@ -93,13 +93,13 @@
         <?php 
         if ($level === 'Administrator'){ ?>
         <li class="nav-item">
-            <a href="users" class="nav-link <?php if($halaman == 'Manajemen Users') echo"active" ?>">
+            <a href="users" class="nav-link <?php if($halaman == 'Manajemen Jurusan' OR $halaman == 'Manajemen Users') echo"active" ?>">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                    Manajemen User
+                    Manajemen Jurusan
                 </p>
             </a>
-        </li>
+        </li>   
         <?php } else { 
         }
         ?>

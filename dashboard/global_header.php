@@ -7,6 +7,7 @@ if (!isset($_SESSION["username"])){
 
 $user = $_SESSION['username'];
 $level = $_SESSION['level'];
+$jurusan = $_SESSION['nama_lengkap'];
 
 $query = $koneksi->query("SELECT * FROM user WHERE username = '$user'");
 $row = $query->fetch_array();

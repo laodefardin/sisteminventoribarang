@@ -2,6 +2,7 @@
 $halaman = 'dashboard';
 include "global_header.php"; 
 $level = $_SESSION['level'];
+$jurusan = $_SESSION['nama_lengkap'];
 ?>
 <!-- Main content -->
 <div class="content">
@@ -77,7 +78,7 @@ $level = $_SESSION['level'];
         <div class="small-box bg-info">
           <div class="inner">
             <?php
-              $sql = "SELECT count(id_barang) as a FROM barang WHERE jurusan = '$level'";
+              $sql = "SELECT count(id_barang) as a FROM barang WHERE jurusan = '$jurusan'";
               $query = mysqli_query($koneksi, $sql);
               $data = mysqli_fetch_assoc($query);
               ?>
@@ -96,7 +97,7 @@ $level = $_SESSION['level'];
         <div class="small-box bg-success">
           <div class="inner">
             <?php
-              $sql = "SELECT count(idbarangkeluar) as a FROM barangkeluar WHERE status=0 AND jurusan = '$level'";
+              $sql = "SELECT count(idbarangkeluar) as a FROM barangkeluar WHERE status=0 AND jurusan = '$jurusan'";
               $query = mysqli_query($koneksi, $sql);
               $data = mysqli_fetch_assoc($query);
               ?>
@@ -114,7 +115,7 @@ $level = $_SESSION['level'];
         <div class="small-box bg-warning">
           <div class="inner">
             <?php
-              $sql = "SELECT count(idbarangkeluar) as a FROM barangkeluar WHERE status=1 AND jurusan = '$level'";
+              $sql = "SELECT count(idbarangkeluar) as a FROM barangkeluar WHERE status=1 AND jurusan = '$jurusan'";
               $query = mysqli_query($koneksi, $sql);
               $data = mysqli_fetch_assoc($query);
               ?>
@@ -152,6 +153,7 @@ $level = $_SESSION['level'];
           <a href="anggota" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
+      
       <div class="col-12 col-sm-6 col-md-2">
         <div class="info-box mb-3">
           <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>

@@ -28,7 +28,7 @@ include "global_header.php"; ?>
                                     <option value="DPIB">DPIB</option>
                                     </select>
                                 <?php }else{?>
-                                <input type="text" name='jurusan' value="<?= $_SESSION['level']; ?>" hidden>
+                                <input type="text" name='jurusan' value="<?= $_SESSION['nama_lengkap']; ?>" hidden>
                                 <?php } ?>
                                 <?php 
                                 if ($level === 'Administrator' ){ ?>
@@ -46,13 +46,13 @@ include "global_header.php"; ?>
                                                 endforeach; ?>
                                         </select>
                                     </div>
-                                    <?php } else { $level = $_SESSION['level'];?>
+                                    <?php } else { ?>
                                     <div class="form-group">
                                         <label>Kode Barang</label>
                                         <select class="form-control" name="id_barang" id="id_barang">
                                         <option>Pilih Kode Barang</option> 
                                     <?php
-                                    $sql = $koneksi->query("SELECT * FROM barang WHERE jurusan = '$level'");
+                                    $sql = $koneksi->query("SELECT * FROM barang WHERE jurusan = '$jurusan'");
                                     foreach ($sql as $data) :
                                     ?>
                                     <option value="<?= $data['id_barang']?>"><?= $data['kodebarang']?> -

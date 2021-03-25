@@ -70,7 +70,7 @@ include "global_header.php"; ?>
                                         <select class="form-control select2" name='sumberdana' style="width: 100%;">
                                             <option>Pilih Sumber Pengadaan</option>
                                             <option value='APBN' <?= $data['sumberdana'] == 'APBN' ? 'selected' : ' ' ?>>APBN</option>
-                                            <option value='APBD' <?= $data['sumberdana'] == 'APBN' ? 'selected' : ' ' ?>>APBD</option>
+                                            <option value='APBD' <?= $data['sumberdana'] == 'APBD' ? 'selected' : ' ' ?>>APBD</option>
                                             <option value='DAK' <?= $data['sumberdana'] == 'DAK' ? 'selected' : ' ' ?>>DAK</option>
                                             <option value='BOS' <?= $data['sumberdana'] == 'BOS' ? 'selected' : ' ' ?>>BOS</option>
                                             <option value='BOS AFIRMASI' <?= $data['sumberdana'] == 'BOS AFIRMASI' ? 'selected' : ' ' ?>>BOS AFIRMASI</option>
