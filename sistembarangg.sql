@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2021 at 02:04 AM
+-- Generation Time: Mar 25, 2021 at 05:47 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -72,14 +72,14 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `kodebarang`, `namabarang`, `kondisibarang`, `sumberdana`, `merek`, `stok`, `stoksisa`, `tahun`, `gambar`, `jurusan`) VALUES
-(9, 'TKJ001', 'TANG CRIMPING', 'bagus', '', '-', '10', '9', '27-01-2021', 'WhatsApp Image 2021-03-12 at 3.57.07 PM.jpeg', 'TKJ'),
+(9, 'TKJ001', 'TANG CRIMPING', 'bagus', '', '-', '10', '5', '27-01-2021', 'WhatsApp Image 2021-03-12 at 3.57.07 PM.jpeg', 'TKJ'),
 (11, 'TKJ002', 'Obeng Set', 'bagus', '', '-', '10', '10', '09-02-2021', 'TKJ0920211439th6c54fa3c359a7855c7b206d1660a511b.jpg', 'TKJ'),
 (12, 'TKJ003', 'LAN Tester ', 'bagus', '', 'OEM', '20', '20', '03-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.07 PM (1).jpeg', 'TKJ'),
 (13, 'TKJ004', 'Tang Crimping 2 in 1', 'bagus', '', '-', '15', '15', '09-02-2021', 'TKJ0920211502th13836901_39dc9ddb-ce67-4e7d-9941-a04fa027a33f_1761_3689-e1488018392328-1024x489-400x191.jpg', 'TKJ'),
 (14, 'TKJ005', 'Konektor RJ45 Cat 6 ', 'bagus', '', 'Belden ', '10', '10', '09-02-2021', 'TKJ0920211525th376802570cf6006fe019895923f991c8.jpg', 'TKJ'),
 (15, 'TKJ006', 'Kabel BELDEN Kabel LAN UTP Cat6 Grey 305m', 'bagus', '', 'Belden ', '5', '5', '30-12-2020', 'WhatsApp Image 2021-03-12 at 3.57.06 PM.jpeg', 'TKJ'),
 (16, 'TKJ007', 'Projector EB X 400 Proyektor 3300 Lumens', 'bagus', '', 'Epson', '2', '2', '09-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM.jpeg', 'TKJ'),
-(17, 'TKJ008', 'LAPTOP Lenovo Ideapad', 'bagus', '', 'Lenovo', '50', '50', '09-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM (1).jpeg', 'TKJ'),
+(17, 'TKJ008', 'LAPTOP Lenovo Ideapad', 'bagus', '', 'Lenovo', '50', '45', '09-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM (1).jpeg', 'TKJ'),
 (18, 'TKJ009', 'Acer Intel Core i3', 'bagus', '', 'Acer', '20', '20', '04-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.05 PM (2).jpeg', 'TKJ'),
 (19, 'TKJ010', 'Switch 5 Port TPLINK ', 'bagus', '', 'TP-Link', '15', '15', '03-02-2021', 'WhatsApp Image 2021-03-12 at 3.57.04 PM.jpeg', 'TKJ'),
 (20, 'TKJ011', 'D-Link 8-Port 10/100 Desktop Switch', 'Baik', '', 'D-Link', '5', '5', '', 'WhatsApp Image 2021-03-12 at 3.57.04 PM (1).jpeg', 'TKJ'),
@@ -201,7 +201,9 @@ CREATE TABLE `barangkeluar` (
 --
 
 INSERT INTO `barangkeluar` (`idbarangkeluar`, `id_barang`, `jurusan`, `id_anggota`, `keterangan`, `tujuan`, `jumlah`, `tanggal`, `status`) VALUES
-(7, '9', 'TKJ', 16, 'a', 'ujian', '1', '23-03-2021', '2');
+(7, '9', 'TKJ', 16, 'a', 'ujian', '1', '23-03-2021', '1'),
+(8, '17', 'TKJ', 15, 'as', 'as', '5', '25-03-2021', '0'),
+(9, '9', 'TKJ', 12, 'z', 'a', '5', '26-03-2021', '2');
 
 -- --------------------------------------------------------
 
@@ -217,6 +219,13 @@ CREATE TABLE `barangmasuk` (
   `jumlah` varchar(100) NOT NULL,
   `tanggal_kembali` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barangmasuk`
+--
+
+INSERT INTO `barangmasuk` (`idbarangmasuk`, `idbarangkeluar`, `id_barang`, `peminjam`, `jumlah`, `tanggal_kembali`) VALUES
+(3, 7, 9, '16', '1', '23-03-2021');
 
 -- --------------------------------------------------------
 
@@ -241,7 +250,9 @@ CREATE TABLE `user` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama_lengkap` varchar(100) NOT NULL,
-  `level` enum('Administrator','Sapras','TKJ','TAV','TPHP','TBSM','TKR','TLAS','DPIB','GURU') NOT NULL,
+  `nama_kajur` varchar(100) NOT NULL,
+  `nip_kajur` varchar(100) NOT NULL,
+  `level` enum('Administrator','Jurusan','Master') NOT NULL,
   `gambar` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -249,16 +260,16 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `password`, `nama_lengkap`, `level`, `gambar`) VALUES
-(1, 'admin', '66b65567cedbc743bda3417fb813b9ba', 'admin', 'Administrator', '1.jpg'),
-(2, 'tkj', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan TKJ', 'TKJ', ''),
-(3, 'tav', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan TAV', 'TAV', ''),
-(4, 'tphp', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan TPHP', 'TPHP', ''),
-(5, 'tbsm', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan TBSM', 'TBSM', ''),
-(6, 'tkr', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan TKR', 'TKR', ''),
-(7, 'dpip', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan DPIB', 'DPIB', ''),
-(8, 'tlas', '66b65567cedbc743bda3417fb813b9ba', 'Jurusan TLAS', 'TLAS', ''),
-(0, 'master', '66b65567cedbc743bda3417fb813b9ba', 'master', 'Administrator', '');
+INSERT INTO `user` (`user_id`, `username`, `password`, `nama_lengkap`, `nama_kajur`, `nip_kajur`, `level`, `gambar`) VALUES
+(1, 'admin', '66b65567cedbc743bda3417fb813b9ba', 'Admin', '', '', 'Administrator', '1.jpg'),
+(2, 'tkj', '66b65567cedbc743bda3417fb813b9ba', 'TKJ', 'Karmila', '', 'Jurusan', ''),
+(3, 'tav', '66b65567cedbc743bda3417fb813b9ba', 'TAV', 'Kajur TAV', '', 'Jurusan', ''),
+(4, 'tphp', '66b65567cedbc743bda3417fb813b9ba', 'TPHP', 'Kajur TPHP', '', 'Jurusan', ''),
+(5, 'tbsm', '66b65567cedbc743bda3417fb813b9ba', 'TBSM', 'Kajur TBSM', '', 'Jurusan', ''),
+(6, 'tkr', '66b65567cedbc743bda3417fb813b9ba', 'TKR', 'Kajur TKR', '', 'Jurusan', ''),
+(7, 'dpip', '66b65567cedbc743bda3417fb813b9ba', 'DPIB', 'Kajur DPIB', '', 'Jurusan', ''),
+(8, 'tlas', '66b65567cedbc743bda3417fb813b9ba', 'TLAS', 'Kajur TLAS', '', 'Jurusan', ''),
+(9, 'master', '66b65567cedbc743bda3417fb813b9ba', 'master', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -314,19 +325,19 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `barangkeluar`
 --
 ALTER TABLE `barangkeluar`
-  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idbarangkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `barangmasuk`
 --
 ALTER TABLE `barangmasuk`
-  MODIFY `idbarangmasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idbarangmasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `master`
@@ -338,7 +349,7 @@ ALTER TABLE `master`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `user_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
