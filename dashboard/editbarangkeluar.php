@@ -21,7 +21,7 @@ include "global_header.php";
                         <form action="proseseditkeluar.php?id=<?php echo $_GET['id'];?>" method="post"
                             enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-md-9">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Kode Barang & Nama Barang</label>
                                         <select class="form-control" name="id_barang" id="id_barang">
@@ -59,6 +59,8 @@ include "global_header.php";
                                         <textarea class="form-control" name="tujuan" id="tujuan" cols="30" rows="2"><?= $data['tujuan']?></textarea>
                                         <!-- <input class="form-control" name="jml_jam" id="jml_jam" type="text"> -->
                                     </div>
+                                    </div>
+                                    <div class='col-md-6'>
                                     <div class="form-group">
                                         <label>Tanggal Peminjaman</label>
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
@@ -83,7 +85,8 @@ include "global_header.php";
                                         <label>Keterangan</label>
                                         <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?=$data['keterangan'];?></textarea>
                                     </div>
-                                    <div class="form-group form-actions">
+                                </div>
+                                                                    <div class="form-group form-actions">
                                         <input class="btn btn-primary" name="tambah" type="submit"
                                             value="Update Barang Keluar">
                                         <input class="btn btn-danger" id="reset" type="reset" value="Batal"
@@ -93,7 +96,6 @@ include "global_header.php";
                                         <!-- <button class="btn btn-danger" type="reset">
                                     <i class="fa fa-ban"></i> Reset</button> -->
                                     </div>
-                                </div>
                             </div>
                         </form>
                         <?php }} ?>

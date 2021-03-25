@@ -72,8 +72,10 @@
             $status = $d['status'];
             if ($status == '1'){
                 echo "Sudah Dikembalikan";
-            }else{
-                echo "Belum Dikembalikan";
+            }elseif($status == '2'){
+                echo "barang belum diambil";
+            }elseif($status == '0'){
+                echo "belum dikembalikan";
             }
             ?></td>
         </tr>

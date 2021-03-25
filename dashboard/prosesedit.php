@@ -7,10 +7,11 @@ $merek = $_POST['merek'];
 $kondisibarang = $_POST['kondisibarang'];
 $stok = $_POST['stok'];
 $stoksisa = $_POST['stoksisa'];
+$sumberdana = $_POST['sumberdana'];
 $tahun = $_POST['tahun'];
 $img = $_FILES['foto']['name'];
 if(empty($img)){
-    $update = "UPDATE barang SET namabarang='".$namabarang."', merek='".$merek."', kondisibarang='".$kondisibarang."', stok='".$stok."', stoksisa='".$stoksisa."', tahun='".$tahun."' WHERE id_barang = '".$id."' ";
+    $update = "UPDATE barang SET namabarang='".$namabarang."', merek='".$merek."', kondisibarang='".$kondisibarang."', sumberdana='".$sumberdana."', stok='".$stok."', stoksisa='".$stoksisa."', tahun='".$tahun."' WHERE id_barang = '".$id."' ";
 
     $sql = mysqli_query($koneksi, $update);
     $_SESSION['pesan'] = 'Ubah';
@@ -27,7 +28,7 @@ if(empty($img)){
 
     move_uploaded_file($_FILES['foto']['tmp_name'], './img/barang/'.$img);
 
-    $update = "UPDATE barang SET namabarang = '".$namabarang."', merek = '".$merek."', kondisibarang = '".$kondisibarang."', stok = '".$stok."', stoksisa='".$stoksisa."', tahun = '".$tahun."', gambar = '".$img."' WHERE id_barang = '".$id."' ";
+    $update = "UPDATE barang SET namabarang = '".$namabarang."', merek = '".$merek."', kondisibarang = '".$kondisibarang."', sumberdana='".$sumberdana."', stok = '".$stok."', stoksisa='".$stoksisa."', tahun = '".$tahun."', gambar = '".$img."' WHERE id_barang = '".$id."' ";
     $sql = mysqli_query($koneksi, $update) or die(mysqli_error($koneksi));
     $_SESSION['pesan'] = 'Ubah';
     echo "<script> document.location.href='./barang';</script>";

@@ -47,7 +47,7 @@ $level = $_SESSION['level'];
                                     <th>Kondisi Barang</th>
                                     <th>Unit Awal</th>
                                     <th>Unit Sisa</th>
-                                    <th>Tahun Masuk</th>
+                                    <th>Tahun Pengadaan</th>
                                     <th>Gambar</th>
                                     <th>Action</th>
                                 </tr>

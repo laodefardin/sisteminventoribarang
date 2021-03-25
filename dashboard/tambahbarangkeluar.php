@@ -14,7 +14,7 @@ include "global_header.php"; ?>
                     <div class="card-body">
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-md-9">
+                                <div class="col-md-6">
                                 <?php
                                 if ($level === 'Administrator'){?>
                                 <label>Jurusan</label>
@@ -82,6 +82,8 @@ include "global_header.php"; ?>
                                         <!-- <input class="form-control" name="peminjam" id="peminjam" type="text"
                                             placeholder="Peminjam"> -->
                                     </div>
+                                    </div>
+                                    <div class='col-md-6'>
                                     <div class="form-group">
                                         <label>Tujuan</label>
                                         <textarea class="form-control" name="tujuan" id="tujuan" cols="30" rows="2"></textarea>
@@ -104,7 +106,9 @@ include "global_header.php"; ?>
                                         <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"></textarea>
                                         <!-- <input class="form-control" name="jml_jam" id="jml_jam" type="text"> -->
                                     </div>
-                                    <div class="form-group form-actions">
+                                    
+                                </div>
+                                <div class="form-group form-actions">
                                         <input class="btn btn-primary" name="tambah" type="submit"
                                             value="Tambah Barang Keluar">
                                         <input class="btn btn-danger" id="reset" type="reset" value="Batal"
@@ -114,7 +118,6 @@ include "global_header.php"; ?>
                                         <!-- <button class="btn btn-danger" type="reset">
                                     <i class="fa fa-ban"></i> Reset</button> -->
                                     </div>
-                                </div>
                             </div>
                         </form>
                     </div>

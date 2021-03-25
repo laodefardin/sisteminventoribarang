@@ -18,22 +18,22 @@ if (isset($_POST["submit"])) {
   // if (empty($password)) {
   //   $pesan_error .= "Password belum diisi <br>";
   // }
-  include("koneksi.php");
-  session_start();
+include("koneksi.php");
+session_start();
 //filter dengan mysqli_real_escape_string
-  $username = $koneksi->escape_string($username);
-  $password = $koneksi->escape_string($password);
+$username = $koneksi->escape_string($username);
+$password = $koneksi->escape_string($password);
 
 //generate hashing
-  $password_sha1 = md5(sha1(md5($password)));
+$password_sha1 = md5(sha1(md5($password)));
 //   $password_sha1 = sha1($password);
-  
+
 // cek apakah username dan password ada di tabel 
   $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password_sha1'";
-  $result = $koneksi->query($query);
-  $row = $result->num_rows;
+$result = $koneksi->query($query);
+$row = $result->num_rows;
   $sql = $koneksi->query("SELECT * FROM user WHERE username = '$username'");
-  $akun = $sql->fetch_assoc();
+$akun = $sql->fetch_assoc();
 
   if ($row > 0 ){ // jika data ada
     $akun = $result->fetch_assoc();
@@ -55,15 +55,15 @@ if (isset($_POST["submit"])) {
     }else{
         echo "<script> document.location.href='dashboard/index'; </script>";
     }
-   
 
-  }else{
+
+}else{
     $_SESSION['pesan'] = '<div class="alert alert-danger alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
     Username dan Password Tidak ditemukan
     </div>';
- }
+}
 }
 else{
   $username = "";
