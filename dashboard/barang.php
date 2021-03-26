@@ -112,7 +112,8 @@ $jurusan = $_SESSION['nama_lengkap'];
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="fetched-data"></div>
+                                <!-- <div class="fetched-data" style="max-height: 500px;overflow: hidden;position: relative;padding-left: 25px;padding-right: 25px;"> -->
+                                    <div class="fetched-data" style="width: 100%; height: 400px;"></div>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
