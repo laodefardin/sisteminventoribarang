@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2021 at 05:47 PM
+-- Generation Time: Mar 26, 2021 at 02:38 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -42,10 +42,11 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `namalengkap`, `username`, `password`, `gender`, `telp`, `gambar`) VALUES
-(12, 'Laode Muh ZulFardin Syah, S.Pd', 'laodefardin', '96de4eceb9a0c2b9b52c0b618819821b', 'Laki-laki', '082393448980', ''),
+(12, 'Laode Muh ZulFardin Syah, S.Pd', 'laodefardin1', '6c991fe85d9fcaea917f71fbdc9e384e', 'Laki-laki', '082393448980', ''),
 (14, 'Karmila, S.Pd', 'Karmila', '37b6b20c0e3c8739f3beb976114c9c63', 'Perempuan', '082337159123', ''),
 (15, 'Aslan. S.Pd', 'aslan', '96de4eceb9a0c2b9b52c0b618819821b', 'Laki-laki', '085267863450', ''),
-(16, 'SUHERMAN', 'suhe', '4892c15214d83bb664ed5380c6034cab', 'Laki-laki', '082393448981', '');
+(16, 'SUHERMAN', 'suhe', '4892c15214d83bb664ed5380c6034cab', 'Laki-laki', '082393448981', ''),
+(17, 'DARMAWANSAH', '1', '021c6cd3a69730ac97d0b65576a9004f', 'Laki-laki', '082393448980', '');
 
 -- --------------------------------------------------------
 
@@ -230,14 +231,23 @@ INSERT INTO `barangmasuk` (`idbarangmasuk`, `idbarangkeluar`, `id_barang`, `pemi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master`
+-- Table structure for table `datasekolah`
 --
 
-CREATE TABLE `master` (
-  `id_master` int(11) NOT NULL,
-  `nama_sekolah` int(11) NOT NULL,
-  `logo` int(11) NOT NULL
+CREATE TABLE `datasekolah` (
+  `id_sekolah` int(11) NOT NULL,
+  `nama_sekolah` varchar(100) NOT NULL,
+  `provinsi` text NOT NULL,
+  `program` text NOT NULL,
+  `logo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `datasekolah`
+--
+
+INSERT INTO `datasekolah` (`id_sekolah`, `nama_sekolah`, `provinsi`, `program`, `logo`) VALUES
+(1, 'SMK Negeri 1 Papalang', 'PEMERINTAH PROVINSI SULAWESI BARAT <br> DINAS PENDIDIKAN DAN KEBUDAYAAN', 'PROGRAM KEAHLIAN: TEKNIK ELEKTRONIKA, TEKNIK MESIN,\r\n                    TEKNIK OTOMOTIF, TEKNIK KOMPUTER DAN INFORMATIKA, DAN AGRIBISNIS HASIL PERTANIAN, DESAIN PEMODELAN\r\n                    DAN INFORMASI BANGUNAN ', 'SMK-Papalang Transparan.png');
 
 -- --------------------------------------------------------
 
@@ -252,7 +262,7 @@ CREATE TABLE `user` (
   `nama_lengkap` varchar(100) NOT NULL,
   `nama_kajur` varchar(100) NOT NULL,
   `nip_kajur` varchar(100) NOT NULL,
-  `level` enum('Administrator','Jurusan','Master') NOT NULL,
+  `level` enum('Administrator','Jurusan') NOT NULL,
   `gambar` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -268,8 +278,7 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `nama_lengkap`, `nama_kaj
 (5, 'tbsm', '66b65567cedbc743bda3417fb813b9ba', 'TBSM', 'Kajur TBSM', '', 'Jurusan', ''),
 (6, 'tkr', '66b65567cedbc743bda3417fb813b9ba', 'TKR', 'Kajur TKR', '', 'Jurusan', ''),
 (7, 'dpip', '66b65567cedbc743bda3417fb813b9ba', 'DPIB', 'Kajur DPIB', '', 'Jurusan', ''),
-(8, 'tlas', '66b65567cedbc743bda3417fb813b9ba', 'TLAS', 'Kajur TLAS', '', 'Jurusan', ''),
-(9, 'master', '66b65567cedbc743bda3417fb813b9ba', 'master', '', '', '', '');
+(8, 'tlas', '66b65567cedbc743bda3417fb813b9ba', 'TLAS', 'Kajur TLAS', '', 'Jurusan', '');
 
 --
 -- Indexes for dumped tables
@@ -300,10 +309,10 @@ ALTER TABLE `barangmasuk`
   ADD PRIMARY KEY (`idbarangmasuk`);
 
 --
--- Indexes for table `master`
+-- Indexes for table `datasekolah`
 --
-ALTER TABLE `master`
-  ADD PRIMARY KEY (`id_master`);
+ALTER TABLE `datasekolah`
+  ADD PRIMARY KEY (`id_sekolah`);
 
 --
 -- Indexes for table `user`
@@ -319,7 +328,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `barang`
@@ -340,10 +349,10 @@ ALTER TABLE `barangmasuk`
   MODIFY `idbarangmasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `master`
+-- AUTO_INCREMENT for table `datasekolah`
 --
-ALTER TABLE `master`
-  MODIFY `id_master` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `datasekolah`
+  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -1,5 +1,5 @@
 <?php 
-$halaman = 'Tambah Jurusan';
+$halaman = 'Tambah Pengguna';
 include "global_header.php"; ?>
 
 <!-- Main content -->
@@ -29,8 +29,10 @@ include "global_header.php"; ?>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Level</label>
-                                        <input class="form-control" name="level" id="level" type="text" value="Jurusan"
-                                            readonly>
+                                        <select class="form-control" name="level" id="level">
+                                        <option value="Jurusan">Jurusan</option>
+                                            <option value="Administrator">Administrator</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Password Baru</label>

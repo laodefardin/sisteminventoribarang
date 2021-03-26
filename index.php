@@ -100,9 +100,16 @@ else{
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <img src="img/SMK-Papalang Transparan.png" style="width: 130px;margin: auto;display: block;" alt="">
+        <?php
+        include("koneksi.php");
+        $query = $koneksi->query("SELECT * FROM datasekolah WHERE id_sekolah  = '1'");
+        foreach ($query as $data) {
+        ?>
+        <img src="img/<?= $data['logo']?>" style="width: 130px;margin: auto;display: block;" alt="">
         <div class="login-logo">
-            <a href="index"><b>Data Pokok Peralatan </b>SMKN 1 PAPALANG</a>
+
+            <a href="index"><b>Data Pokok Peralatan </b><?= $data['nama_sekolah'] ?></a>
+            <?php } ?>
         </div>
         <?php
                 //menampilkan pesan jika ada pesan

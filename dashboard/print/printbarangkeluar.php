@@ -36,19 +36,22 @@ session_start();
     </style>
 
     <table width=100%>
+    <?php
+        include ('../../koneksi.php');
+        $query = $koneksi->query("SELECT * FROM datasekolah WHERE id_sekolah  = '1'");
+        foreach ($query as $data) {
+        ?>
         <tr>
-            <td align="center" rowspan='3' width='88px'><img width='90px' src='../../img/SMK-Papalang Transparan.png'>
+            <td align="center" rowspan='3' width='88px'><img width='90px' src='../../img/<?= $data['logo'] ?>'>
             </td>
         </tr>
         <tr>
             <td align="center"><text style='margin-bottom:-5px; font-family: initial; font-size:15px'
-                    align=center>PEMERINTAH PROVINSI SULAWESI BARAT<br> DINAS PENDIDIKAN DAN KEBUDAYAAN </text> <br> <b
-                    style='font-size:25px'>SMK NEGERI 1 PAPALANG </b> <br> <text
-                    style='font-family: initial; font-size:11px'> PROGRAM KEAHLIAN: TEKNIK ELEKTRONIKA, TEKNIK MESIN,
-                    TEKNIK OTOMOTIF, TEKNIK KOMPUTER DAN INFORMATIKA, DAN AGRIBISNIS HASIL PERTANIAN, DESAIN PEMODELAN
-                    DAN INFORMASI BANGUNAN </text></td>
+                    align=center><?= $data['provinsi'] ?></text> <br> <b style='font-size:25px; text-transform: uppercase;' ><?= $data['nama_sekolah'] ?> </b> <br> <text
+                    style='font-family: initial; font-size:11px'><?= $data['program'] ?></text></td>
             <td align="center" rowspan='3' width='88px'></td>
         </tr>
+        <?php } ?>
         <!-- <tr>
     <td align="center"><h6  style='margin-bottom:-23px' align=center> Alamat : Jl. Dg. Tata Raya Parang Tambung Makassar 90224 Telp : (0411) 861935 – 861507</h6></td>
 </tr> -->

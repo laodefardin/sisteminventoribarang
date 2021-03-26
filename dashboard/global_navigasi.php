@@ -31,9 +31,9 @@
         </li>
 
         <li
-            class="nav-item has-treeview <?php if($halaman == 'barang' or $halaman == 'Tambah Barang' or $halaman == 'uploadfoto' or $halaman == 'profil' or $halaman == 'anggota' or $halaman == 'Tambah Anggota') echo 'menu-open'?>">
+            class="nav-item has-treeview <?php if($halaman == 'barang' or $halaman == 'Tambah Barang' or $halaman == 'uploadfoto' or $halaman == 'profil' or $halaman == 'anggota' or $halaman == 'Tambah Anggota' or $halaman == 'Data Sekolah') echo 'menu-open'?>">
             <a href="#"
-                class="nav-link <?php if($halaman == 'barang' or $halaman == 'Tambah Barang' or $halaman == 'uploadfoto' or $halaman == 'profil' or $halaman == 'anggota' or $halaman == 'Tambah Anggota') echo "active" ?>">
+                class="nav-link <?php if($halaman == 'barang' or $halaman == 'Tambah Barang' or $halaman == 'uploadfoto' or $halaman == 'profil' or $halaman == 'anggota' or $halaman == 'Tambah Anggota' or $halaman == 'Data Sekolah') echo "active" ?>">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                     Data Master
@@ -50,9 +50,21 @@
                     <a href="anggota"
                         class="nav-link <?php if($halaman == 'anggota' or $halaman == 'Tambah Anggota') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Data Anggota</p>
+                        <p>Data Guru</p>
                     </a>
-                    <!-- <a href="uploadfoto" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
+                    <?php 
+        if ($level === 'Administrator'){ ?>
+                    <a href="datasekolah"
+                        class="nav-link <?php if($halaman == 'Manajemen Jurusan' OR $halaman == 'Manajemen Users' OR $halaman == 'Data Sekolah') echo"active" ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Data Sekolah
+                        </p>
+                    </a>
+                <?php } else { 
+        }
+        ?>
+                <!-- <a href="uploadfoto" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Upload Foto</p>
                     </a>
@@ -60,140 +72,140 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>Ubah Password</p>
                     </a> -->
-                </li>
-            </ul>
         </li>
-        <li
-            class="nav-item has-treeview <?php if($halaman == 'Transaksi' or $halaman == 'Transaksi Barang Masuk' or $halaman == 'Transaksi Barang Keluar' or $halaman == 'Tambah Barang Keluar') echo 'menu-open'?>">
-            <a href="#"
-                class="nav-link <?php if($halaman == 'Transaksi' or $halaman == 'Transaksi Barang Masuk' or $halaman == 'Transaksi Barang Keluar' or $halaman == 'Tambah Barang Keluar') echo "active" ?>">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                    Data Transaksi
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="barangkeluar"
-                        class="nav-link <?php if($halaman == 'Transaksi Barang Keluar' or $halaman == 'Tambah Barang Keluar') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Peminjaman</p>
-                    </a>
-                    <a href="barangmasuk"
-                        class="nav-link <?php if($halaman == 'Transaksi Barang Masuk') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Pengembalian</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <?php }?>
+    </ul>
+    </li>
+    <li
+        class="nav-item has-treeview <?php if($halaman == 'Transaksi' or $halaman == 'Transaksi Barang Masuk' or $halaman == 'Transaksi Barang Keluar' or $halaman == 'Tambah Barang Keluar') echo 'menu-open'?>">
+        <a href="#"
+            class="nav-link <?php if($halaman == 'Transaksi' or $halaman == 'Transaksi Barang Masuk' or $halaman == 'Transaksi Barang Keluar' or $halaman == 'Tambah Barang Keluar') echo "active" ?>">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+                Data Transaksi
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="barangkeluar"
+                    class="nav-link <?php if($halaman == 'Transaksi Barang Keluar' or $halaman == 'Tambah Barang Keluar') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Peminjaman</p>
+                </a>
+                <a href="barangmasuk" class="nav-link <?php if($halaman == 'Transaksi Barang Masuk') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengembalian</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <?php }?>
 
-        <?php 
+    <?php 
         if ($level === 'Administrator'){ ?>
-        <li class="nav-item">
-            <a href="users" class="nav-link <?php if($halaman == 'Manajemen Jurusan' OR $halaman == 'Manajemen Users') echo"active" ?>">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                    Manajemen Jurusan
-                </p>
-            </a>
-        </li>   
-        <?php } else { 
+    <li class="nav-item">
+        <a href="users"
+            class="nav-link <?php if($halaman == 'Manajemen Jurusan' OR $halaman == 'Manajemen Users') echo"active" ?>">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                Manajemen Pengguna
+            </p>
+        </a>
+    </li>
+    <?php } else { 
         }
         ?>
 
 
-        <?php
+    <?php
 if($level === 'GURU'){ ?>
-        <li
-            class="nav-item has-treeview <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo 'menu-open'?>">
-            <a href="#"
-                class="nav-link <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo "active" ?>">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                    Pengaturan
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="profil-guru" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Profil Guru</p>
-                    </a>
-                    <a href="uploadfotoguru" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Upload Foto</p>
-                    </a>
-                    <a href="setting" class="nav-link <?php if($halaman == 'setting') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ubah Password</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <?php }else{ ?>
-        <li
-            class="nav-item has-treeview <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo 'menu-open'?>">
-            <a href="#"
-                class="nav-link <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo "active" ?>">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                    Pengaturan
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="profil" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Profil</p>
-                    </a>
-                    <a href="uploadfoto" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Upload Foto</p>
-                    </a>
-                    <a href="setting" class="nav-link <?php if($halaman == 'setting') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ubah Password</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <?php } ?>
+    <li
+        class="nav-item has-treeview <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo 'menu-open'?>">
+        <a href="#"
+            class="nav-link <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo "active" ?>">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+                Pengaturan
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="profil-guru" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Profil Guru</p>
+                </a>
+                <a href="uploadfotoguru" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Upload Foto</p>
+                </a>
+                <a href="setting" class="nav-link <?php if($halaman == 'setting') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ubah Password</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <?php }else{ ?>
+    <li
+        class="nav-item has-treeview <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo 'menu-open'?>">
+        <a href="#"
+            class="nav-link <?php if($halaman == 'setting' or $halaman == 'uploadfoto' or $halaman == 'profil') echo "active" ?>">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+                Pengaturan
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="profil" class="nav-link <?php if($halaman == 'profil') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Profil</p>
+                </a>
+                <a href="uploadfoto" class="nav-link <?php if($halaman == 'uploadfoto') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Upload Foto</p>
+                </a>
+                <a href="setting" class="nav-link <?php if($halaman == 'setting') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ubah Password</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <?php } ?>
 
-        <?php 
+    <?php 
         if ($level === 'Administrator'){ ?>
-        <li
-            class="nav-item has-treeview <?php if($halaman == 'database' or $halaman == 'Import' or $halaman == 'Export' or $halaman == 'Hapus Tabel/Datbase') echo 'menu-open'?>">
-            <a href="#"
-                class="nav-link <?php if($halaman == 'database' or $halaman == 'Import' or $halaman == 'Export' or $halaman == 'Hapus Tabel/Datbase') echo "active" ?>">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                    Database
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="import" class="nav-link <?php if($halaman == 'Import') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Import</p>
-                    </a>
-                    <a href="export" class="nav-link <?php if($halaman == 'Export') echo "active" ?>">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Export</p>
-                    </a>
-                    <!-- <a href="hapusdatabase" class="nav-link <?php if($halaman == 'Hapus Tabel/Datbase') echo "active" ?>">
+    <li
+        class="nav-item has-treeview <?php if($halaman == 'database' or $halaman == 'Import' or $halaman == 'Export' or $halaman == 'Hapus Tabel/Datbase') echo 'menu-open'?>">
+        <a href="#"
+            class="nav-link <?php if($halaman == 'database' or $halaman == 'Import' or $halaman == 'Export' or $halaman == 'Hapus Tabel/Datbase') echo "active" ?>">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+                Database
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="import" class="nav-link <?php if($halaman == 'Import') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Import</p>
+                </a>
+                <a href="export" class="nav-link <?php if($halaman == 'Export') echo "active" ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Export</p>
+                </a>
+                <!-- <a href="hapusdatabase" class="nav-link <?php if($halaman == 'Hapus Tabel/Datbase') echo "active" ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Hapus Table</p>
                     </a> -->
-                </li>
-            </ul>
-        </li>
-        <?php } ?>
+            </li>
+        </ul>
+    </li>
+    <?php } ?>
 
     </ul>
 </nav>

@@ -1,7 +1,7 @@
 <?php
-$halaman = 'Manajemen Users';
+$halaman = 'Manajemen Pengguna';
 include "global_header.php"; 
-$query = $koneksi->query("SELECT * FROM user WHERE level = 'Jurusan'");
+$query = $koneksi->query("SELECT * FROM user");
 
 ?>
 <!-- Main content -->
@@ -28,9 +28,9 @@ $query = $koneksi->query("SELECT * FROM user WHERE level = 'Jurusan'");
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Data User Jurusan</h3>
+                        <h3 class="card-title">Data Pengguna</h3>
                         <a style="text-align: right;" class="btn bg-yellow btn-sm offset-md-9" href="tambahuser"> <i
-                                class="fa fa-plus"></i> Tambah User Jurusan</a>
+                                class="fa fa-plus"></i> Tambah User</a>
                     </div>
 
                     <!-- /.card-header -->
@@ -40,7 +40,7 @@ $query = $koneksi->query("SELECT * FROM user WHERE level = 'Jurusan'");
                                 <tr>
                                     <th>No</th>
                                     <th>Username</th>
-                                    <th>Nama Jurusan</th>
+                                    <th>Nama Pengguna</th>
                                     <th>Level</th>
                                     <th>Action</th>
                                 </tr>
