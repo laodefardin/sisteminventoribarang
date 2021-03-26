@@ -56,7 +56,7 @@ include "global_header.php"; ?>
                                             <input type="file" name="foto" class="custom-file-input" id="customFile">
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
-                                        <img src="../img/<?= $data['logo']; ?>" style="width: 350px;margin: 20px;padding: 20px;border: 1px solid #d6d6d6;" alt="">
+                                        <img src="../img/<?= $data['logo']; ?>" style="width: 100%;margin-top: 20px;padding: 50px;border: 1px solid #d6d6d6;" alt="logo sekolah">
                                     </div>
                                 </div>
 
