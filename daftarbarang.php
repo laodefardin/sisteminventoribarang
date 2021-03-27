@@ -155,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="fetched-data"></div>
+                                        <div class="fetched-data"  style="width: 100%; height: 400px;"></div>
                                     </div>
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button"

@@ -8,7 +8,6 @@ include "global_header.php"; ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="card-header">Tambah Anggota</div>
                     <div class="card-body">
@@ -31,6 +30,14 @@ include "global_header.php"; ?>
                                         <label>Telp/Hp</label>
                                         <input class="form-control" name="telp" id="telp" type="text">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input class="form-control" name="username" id="username" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="form-control" name="password" id="password" type="text">
+                                    </div>
 
                                 <input class="btn btn-primary" name="tambah" type="submit" value="Tambah">
                                     <input class="btn btn-danger" id="reset" type="reset" value="Batal"
@@ -52,8 +59,11 @@ include "global_header.php"; ?>
                 $namalengkap = $_POST['namalengkap'];
                 $gender = $_POST['gender'];
                 $telp  = $_POST['telp'];
+                $username = $_POST['username'];
+                $password = htmlentities(strip_tags(trim($_POST["password"])));
+                $passwordbaru = md5(sha1(md5($password)));
 
-                    $query = 'INSERT INTO anggota (namalengkap, gender, telp) VALUES ("'.$namalengkap.'","'.$gender.'","'.$telp.'")';
+                    $query = 'INSERT INTO anggota (namalengkap, username, password, gender, telp, gambar) VALUES ("'.$namalengkap.'","'.$username.'","'.$passwordbaru.'","'.$gender.'","'.$telp.'","")';
                     $proses = $koneksi->query($query);
 
                     if ($proses){

@@ -55,31 +55,29 @@
 		// menampilkan data
 		if ($level === 'Administrator'){
 $query = mysqli_query($koneksi, "SELECT barangmasuk.*, 
-barang.id_barang, 
-barang.namabarang, 
-barangkeluar.idbarangkeluar, 
-barangkeluar.tanggal, 
-barangkeluar.status,
-barang.kodebarang 
+barang.*,
+barangkeluar.*,
+anggota.*
 FROM barangmasuk 
 INNER JOIN barang ON 
 barangmasuk.id_barang=barang.id_barang 
 INNER JOIN barangkeluar ON 
 barangkeluar.idbarangkeluar=barangmasuk.idbarangkeluar 
+INNER JOIN anggota ON 
+anggota.id_anggota = barangmasuk.peminjam
 WHERE barangkeluar.status=1");  
 }else{
 $query = mysqli_query($koneksi, "SELECT barangmasuk.*, 
-barang.id_barang, 
-barang.namabarang, 
-barangkeluar.idbarangkeluar, 
-barangkeluar.tanggal, 
-barangkeluar.status,
-barang.kodebarang 
+barang.*,
+barangkeluar.*,
+anggota.*
 FROM barangmasuk 
 INNER JOIN barang ON 
 barangmasuk.id_barang=barang.id_barang 
 INNER JOIN barangkeluar ON 
 barangkeluar.idbarangkeluar=barangmasuk.idbarangkeluar 
+INNER JOIN anggota ON 
+anggota.id_anggota = barangmasuk.peminjam
 WHERE barangkeluar.status=1 AND barangkeluar.jurusan = '$level'");
 }
 		$no = 1;
@@ -89,7 +87,7 @@ WHERE barangkeluar.status=1 AND barangkeluar.jurusan = '$level'");
             <td><?= $no++; ?></td>
             <td><?= $d['kodebarang']; ?></td>
             <td><?= $d['namabarang']; ?></td>
-            <td><?= $d['peminjam']; ?></td>
+            <td><?= $d['namalengkap']; ?></td>
             <td><?= $d['jumlah']; ?></td>
             <td><?= $d['tanggal']; ?></td>
             <td><?= $d['tanggal_kembali']; ?></td>

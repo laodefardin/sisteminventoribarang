@@ -26,7 +26,7 @@ include "global_header.php"; ?>
           //cek dahulu ke database dengan query SELECT
           //kondisi adalah WHERE (dimana) kolom password adalah $password_lama di encrypt m5
           //encrypt -> md5($password_lama)
-        $password_lama  = sha1($password_lama);
+        $password_lama  = md5(sha1(md5($password_lama)));
         $data            = $koneksi->query("SELECT password FROM user WHERE password='$password_lama'");
         if ($data->num_rows) {
             //kondisi ini jika password lama yang dimasukkan sama dengan yang ada di database

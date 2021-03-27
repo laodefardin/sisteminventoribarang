@@ -28,9 +28,9 @@ include "global_header.php";
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Data Anggota</h3>
+                        <h3 class="card-title">Data Guru</h3>
                         <a style="text-align: right;" class="btn bg-yellow btn-sm offset-md-9" href="tambahanggota"> <i
-                                class="fa fa-plus"></i> Tambah Anggota</a>
+                                class="fa fa-plus"></i> Tambah Guru</a>
                     </div>
 
                     <!-- /.card-header -->
@@ -66,9 +66,7 @@ include "global_header.php";
 
                                     </td>
                                 </tr>
-                                <?php
-                                                    $nomor_urut++;
-                                                endforeach; ?>
+                                <?php $nomor_urut++; endforeach; ?>
                             </tbody>
                             <!-- <tfoot>
                                 <tr>

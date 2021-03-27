@@ -1,6 +1,7 @@
 <?php
 $halaman = 'Import';
-include "global_header.php"; 
+include "global_header.php";
+include "../koneksi.php";
 
 $message = '';
 if(isset($_POST["import"]))
@@ -11,7 +12,8 @@ if(isset($_POST["import"]))
   $extension = end($array);
   if($extension == 'sql')
   {
-   $connect = mysqli_connect("localhost", "root", "", "sistembarang");
+    // include "../koneksi.php";
+   $connect = mysqli_connect("localhost", "root", "", "$dbname");
    $output = '';
    $count = 0;
    $file_data = file($_FILES["database"]["tmp_name"]);

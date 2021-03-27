@@ -10,7 +10,7 @@ include "global_header.php"; ?>
             <div class="col-lg-12">
 
                 <div class="card">
-                    <div class="card-header">Edit Anggota</div>
+                    <div class="card-header">Edit Guru</div>
                     <div class="card-body">
                         <?php
                     $query = $koneksi->query("SELECT * FROM anggota WHERE id_anggota = '$_GET[id]'");
@@ -40,7 +40,16 @@ include "global_header.php"; ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Telp/Hp</label>
-                                        <input class="form-control" name="telp" id="telp" type="text" value="<?= $data['telp'];?>">
+                                        <input class="form-control" name="telp" id="telp" type="text"
+                                            value="<?= $data['telp'];?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input class="form-control" name="username" id="username" type="text" value="<?= $data['username'];?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ganti Password</label>
+                                        <input class="form-control" name="password" id="password" type="text">
                                     </div>
 
                                     <input class="btn btn-primary" name="tambah" type="submit" value="Update">

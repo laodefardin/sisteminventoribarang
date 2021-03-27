@@ -1,5 +1,5 @@
 <?php
-$halaman = 'Manajemen Users';
+$halaman = 'Manajemen Pengguna';
 include "global_header.php"; 
 $query = $koneksi->query("SELECT * FROM user");
 
@@ -28,9 +28,9 @@ $query = $koneksi->query("SELECT * FROM user");
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Data Users</h3>
-                        <!-- <a style="text-align: right;" class="btn bg-yellow btn-sm offset-md-9" href="tambahuser"> <i
-                                class="fa fa-plus"></i> Tambah User</a> -->
+                        <h3 class="card-title">Data Pengguna</h3>
+                        <a style="text-align: right;" class="btn bg-yellow btn-sm offset-md-9" href="tambahuser"> <i
+                                class="fa fa-plus"></i> Tambah User</a>
                     </div>
 
                     <!-- /.card-header -->
@@ -40,7 +40,7 @@ $query = $koneksi->query("SELECT * FROM user");
                                 <tr>
                                     <th>No</th>
                                     <th>Username</th>
-                                    <th>Nama Lengkap</th>
+                                    <th>Nama Pengguna</th>
                                     <th>Level</th>
                                     <th>Action</th>
                                 </tr>
@@ -57,10 +57,10 @@ $query = $koneksi->query("SELECT * FROM user");
                                     <td>
                                         <a href="updateuser?id=<?= $data['user_id'];?>"
                                             class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                                        <!-- <a href="hapususer?id=<?= $data['user_id']; ?>"
+                                        <a href="hapususer?id=<?= $data['user_id']; ?>"
                                             class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip"
                                             data-placement="top" title="" data-original-title="Hapus"><i
-                                                class="fa fa-trash"></i></a> -->
+                                                class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 <?php $nomor_urut++; endforeach; ?>

@@ -36,26 +36,29 @@ session_start();
     </style>
 
     <table width=100%>
+    <?php
+        include ('../../koneksi.php');
+        $query = $koneksi->query("SELECT * FROM datasekolah WHERE id_sekolah  = '1'");
+        foreach ($query as $data) {
+        ?>
         <tr>
-            <td align="center" rowspan='3' width='88px'><img width='90px' src='../../img/SMK-Papalang Transparan.png'>
+            <td align="center" rowspan='3' width='88px'><img width='90px' src='../../img/<?= $data['logo'] ?>'>
             </td>
         </tr>
         <tr>
             <td align="center"><text style='margin-bottom:-5px; font-family: initial; font-size:15px'
-                    align=center>PEMERINTAH PROVINSI SULAWESI BARAT<br> DINAS PENDIDIKAN DAN KEBUDAYAAN </text> <br> <b
-                    style='font-size:25px'>SMK NEGERI 1 PAPALANG </b> <br> <text
-                    style='font-family: initial; font-size:11px'> PROGRAM KEAHLIAN: TEKNIK ELEKTRONIKA, TEKNIK MESIN,
-                    TEKNIK OTOMOTIF, TEKNIK KOMPUTER DAN INFORMATIKA, DAN AGRIBISNIS HASIL PERTANIAN, DESAIN PEMODELAN
-                    DAN INFORMASI BANGUNAN </text></td>
+                    align=center><?= $data['provinsi'] ?></text> <br> <b style='font-size:25px; text-transform: uppercase;' ><?= $data['nama_sekolah'] ?> </b> <br> <text
+                    style='font-family: initial; font-size:11px'><?= $data['program'] ?></text></td>
             <td align="center" rowspan='3' width='88px'></td>
         </tr>
+        <?php } ?>
         <!-- <tr>
     <td align="center"><h6  style='margin-bottom:-23px' align=center> Alamat : Jl. Dg. Tata Raya Parang Tambung Makassar 90224 Telp : (0411) 861935 – 861507</h6></td>
 </tr> -->
     </table>
     <hr>
     <center>
-        <h3>Form Peminjaman Barang
+        <h3>Bukti Peminjaman Barang
             <br /><br /><br /></h3>
 
     </center>
@@ -69,6 +72,7 @@ session_start();
         $id = $_GET['id'];
         $level = $_SESSION['level'];
         $nama_lengkap = $_SESSION['nama_lengkap'];
+        $jurusan = $_SESSION['nama_lengkap'];
 
         // menampilkan data
         if ($level === 'Administrator'){
@@ -78,7 +82,7 @@ session_start();
             $query = "SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE idbarangkeluar = '$id'";
             $data = mysqli_query($koneksi,$query);
         }else{
-            $query = "SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$level' AND idbarangkeluar = '$id'";
+            $query = "SELECT barangkeluar.*, barang.*, anggota.* FROM barangkeluar INNER JOIN barang ON barangkeluar.id_barang = barang.id_barang INNER JOIN anggota ON barangkeluar.id_anggota = anggota.id_anggota WHERE barangkeluar.jurusan = '$jurusan' AND idbarangkeluar = '$id'";
             $data = mysqli_query($koneksi,$query);
         }
         $no = 1;
@@ -156,7 +160,7 @@ session_start();
             if ($level === 'Administrator') { ?>
             <td style="padding-left: 200px;"><strong>Administrator</strong></td>
             <?php }else{  ?>
-            <td style="padding-left: 200px;"><strong>Kepala Lab</strong></td>
+            <td style="padding-left: 200px;"><strong>Kepala Jurusan </strong></td>
             <?php } ?>
         </tr>
         <tr>
@@ -174,11 +178,33 @@ session_start();
             }
             ?>
             <img src="<?php echo $tempDir.$nama_file.'.png' ?> " style="width: 100px;">
+            <br>
+            </td>
+
+            <td style="padding-left: 200px;">
+            
+            <?php
+            $sql = $koneksi->query("SELECT * FROM user WHERE nama_lengkap = '$d[jurusan]'");
+            $akun1 = $sql->fetch_assoc();   
+            $nama_file1 = $d['jurusan'].$d['tanggal'].$akun1['nama_kajur'];
+            $qrvalue1 = 'Kepala Jurusan '.$akun1['nama_lengkap'].':'.$akun1['nama_kajur'];
+            $tempDir1 = "../../assets/bacadata/pdfqrcodes/"; 
+            $codeContents1 = $qrvalue1; 
+            $fileName = $nama_file1.'.png'; 
+            $pngAbsoluteFilePath1 = $tempDir1.$fileName; 
+            $urlRelativeFilePath1 = $tempDir1.$fileName; 
+            if (!file_exists($pngAbsoluteFilePath1)) { 
+                QRcode::png($codeContents1, $pngAbsoluteFilePath1); 
+            }
+            ?>
+            <img src="<?php echo $tempDir1.$nama_file1.'.png' ?> " style="width: 100px;">
+            <br>
+            </td>
             <br></td>
             <td style="padding-left: 200px;"><br></td>
         </tr>
         <tr>
-            <td><u><?= $d['namalengkap']; ?></u></td>
+            <td><?= $d['namalengkap']; ?></td>
             <?php
             $sql = $koneksi->query("SELECT * FROM user");
             $akun = $sql->fetch_assoc();
@@ -186,13 +212,32 @@ session_start();
             $j =  $d['jurusan'];
 
             if($j === 'Administrator'){ ?>
-            <td style="padding-left: 200px;"><u>( <?= $nama_lengkap; ?> )</u></td>
+            <td style="padding-left: 200px;"><?= $nama_lengkap; ?></td>
 
             <?php }else{
-             $sql = $koneksi->query("SELECT * FROM user WHERE level = '$j'");
+             $sql = $koneksi->query("SELECT * FROM user WHERE nama_lengkap = '$j'");
             $akun1 = $sql->fetch_assoc();    
                 ?>
-            <td style="padding-left: 200px;"><u>( <?= $akun1['nama_lengkap']; ?> )</u></td>
+            <td style="padding-left: 200px;"><?= $akun1['nama_kajur']; ?></td>
+            <?php } ?>
+
+        </tr>
+        <tr>
+            <td></td>
+            <?php
+            $sql = $koneksi->query("SELECT * FROM user");
+            $akun = $sql->fetch_assoc();
+            $h = $akun['nama_lengkap'];
+            $j =  $d['jurusan'];
+
+            if($j === 'Administrator'){ ?>
+            <td style="padding-left: 200px;"><?= $nama_lengkap; ?></td>
+
+            <?php }else{
+             $sql = $koneksi->query("SELECT * FROM user WHERE nama_lengkap = '$j'");
+            $akun1 = $sql->fetch_assoc();    
+                ?>
+            <!-- <td style="padding-left: 200px;">Nip.<?= $akun1['nip_kajur']; ?></td> -->
             <?php } ?>
 
         </tr>

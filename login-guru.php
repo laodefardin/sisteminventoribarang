@@ -49,7 +49,7 @@ if (isset($_POST["submit"])) {
     $_SESSION['gambar'] = $akun['gambar'];
     $_SESSION['id_anggota'] = $akun['id_anggota'];
 
-    $level = $akun["level"];
+    // $level = $akun["level"];
 
         echo "<script> document.location.href='dashboard/index'; </script>";
 

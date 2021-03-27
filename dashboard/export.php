@@ -1,5 +1,6 @@
 <?php
-$connect = new PDO("mysql:host=localhost;dbname=sistembarang", "root", "");
+include "../koneksi.php";
+$connect = new PDO("mysql:host=localhost;dbname=$dbname", "root", "");
 $get_all_table_query = "SHOW TABLES";
 $statement = $connect->prepare($get_all_table_query);
 $statement->execute();
@@ -92,8 +93,8 @@ include 'global_header.php';
     ?>
               <div class="checkbox">
                 <label><input type="checkbox" class="checkbox_table" name="table[]"
-                    value="<?php echo $table["Tables_in_sistembarang"]; ?>" />
-                  <?php echo $table["Tables_in_sistembarang"]; ?></label>
+                    value="<?php echo $table["Tables_in_$dbname"]; ?>" />
+                  <?php echo $table["Tables_in_$dbname"]; ?></label>
               </div>
               <?php
     }

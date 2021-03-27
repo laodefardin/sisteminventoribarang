@@ -3,6 +3,7 @@ $halaman = 'barang';
 include "global_header.php"; 
 // $query = query("SELECT * FROM barang");
 $level = $_SESSION['level'];
+$jurusan = $_SESSION['nama_lengkap'];
 ?>
 <!-- Main content -->
 <div class="content">
@@ -33,6 +34,11 @@ $level = $_SESSION['level'];
                         <h3 class="card-title">Data Barang</h3>
                         <a style="text-align: right;" class="btn bg-yellow btn-sm offset-md-9" href="tambahbarang"> <i
                                 class="fa fa-plus"></i> Tambah Barang</a>
+
+                        <a style="text-align: right;" class="btn bg-green btn-sm" href="print/recapbarangexcel.php"
+                            target="_blank"> <i class="fa fa-print"></i> Excel</a>
+                        <a style="text-align: right;" class="btn bg-red btn-sm" href="print/recapbarangpdf.php"
+                            target="_blank"> <i class="fa fa-print"></i> PDF</a>
                     </div>
 
                     <!-- /.card-header -->
@@ -44,10 +50,11 @@ $level = $_SESSION['level'];
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Merek</th>
+                                    <th>Tahun Pengadaan</th>
+                                    <th>Sumber Pengadaan</th>
                                     <th>Kondisi Barang</th>
                                     <th>Unit Awal</th>
                                     <th>Unit Sisa</th>
-                                    <th>Tahun Masuk</th>
                                     <th>Gambar</th>
                                     <th>Action</th>
                                 </tr>
@@ -56,20 +63,8 @@ $level = $_SESSION['level'];
                                 <?php
                                 if($level === 'Administrator'){
                                     $query = $koneksi->query("SELECT * FROM barang");
-                                }else if($level === 'TKJ'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TKJ'");
-                                }else if($level === 'TAV'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TAV'");
-                                }else if($level === 'TPHP'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TPHP'");
-                                }else if($level === 'TBSM'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TBSM'");
-                                }else if($level === 'TKR'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TKR'");
-                                }else if($level === 'TLAS'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'TLAS'");
-                                }else if($level === 'DPIB'){
-                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = 'DPIB'");
+                                }else{
+                                    $query = $koneksi->query("SELECT * FROM barang WHERE jurusan = '$jurusan'");
                                 }
                         $nomor_urut = 1;
                         foreach ($query as $data) : ?>
@@ -78,10 +73,11 @@ $level = $_SESSION['level'];
                                     <td><?= $data['kodebarang']; ?></td>
                                     <td><?= $data['namabarang']; ?></td>
                                     <td><?= $data['merek']; ?></td>
+                                    <td><?= $data['tahun']; ?></td>
+                                    <td><?= $data['sumberdana']; ?></td>
                                     <td><?= $data['kondisibarang']; ?></td>
                                     <td><?= $data['stok']; ?></td>
                                     <td><?= $data['stoksisa']; ?></td>
-                                    <td><?= $data['tahun']; ?></td>
                                     <td>
                                         <?php echo "<a  class='btn btn-primary btn-sm' href='#largeModal' class='btn btn-default btn-small' id='custId' data-toggle='modal' data-id=" . $data['id_barang'] . "><i class='fa fa-eye'></i> Lihat Gambar</a>"; ?>
                                     </td>
@@ -90,8 +86,9 @@ $level = $_SESSION['level'];
                                             class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
 
                                         <a href="hapusbarang?id=<?= $data['id_barang']; ?>"
-                                            class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip" data-placement="top"
-                                            title="" data-original-title="Hapus"><i class="fa fa-trash"></i></a>
+                                            class="btn btn-danger btn-xs tombol-hapus" data-toggle="tooltip"
+                                            data-placement="top" title="" data-original-title="Hapus"><i
+                                                class="fa fa-trash"></i></a>
 
 
                                     </td>
@@ -125,7 +122,8 @@ $level = $_SESSION['level'];
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="fetched-data"></div>
+                                    <!-- <div class="fetched-data" style="max-height: 500px;overflow: hidden;position: relative;padding-left: 25px;padding-right: 25px;"> -->
+                                    <div class="fetched-data" style="width: 100%; height: 400px;"></div>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
