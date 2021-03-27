@@ -122,7 +122,11 @@ $jurusan = $_SESSION['nama_lengkap'];
                                     </button>
                                 </div>
                                 <div class="modal-body">
+<<<<<<< HEAD
                                     <!-- <div class="fetched-data" style="max-height: 500px;overflow: hidden;position: relative;padding-left: 25px;padding-right: 25px;"> -->
+=======
+                                <!-- <div class="fetched-data" style="max-height: 500px;overflow: hidden;position: relative;padding-left: 25px;padding-right: 25px;"> -->
+>>>>>>> 32ad088f60cfb8a802fd349deab0b28bea55bc95
                                     <div class="fetched-data" style="width: 100%; height: 400px;"></div>
                                 </div>
                                 <div class="modal-footer">
