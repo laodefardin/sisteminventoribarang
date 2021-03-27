@@ -104,7 +104,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <th>Merek</th>
                                         <th>Jumlah</th>
                                         <th>Sisa Stok</th>
-                                        <th>Tahun Masuk</th>
                                         <th>Gambar</th>
                                     </tr>
                                 </thead>
@@ -121,7 +120,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <td><?= $data['merek']; ?></td>
                                         <td><?= $data['stok']; ?></td>
                                         <td><?= $data['stoksisa']; ?></td>
-                                        <td><?= $data['tahun']; ?></td>
                                         <td>
                                             <?php echo "<a  class='btn btn-primary btn-sm' href='#largeModal' class='btn btn-default btn-small' id='custId' data-toggle='modal' data-id=" . $data['id_barang'] . "><i class='fa fa-eye'></i> Lihat</a>"; ?>
                                         </td>

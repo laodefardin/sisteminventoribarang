@@ -60,7 +60,7 @@
         if ($level === 'Administrator'){
             $data = mysqli_query($koneksi, "SELECT * FROM barang");
         }else{
-            $data = mysqli_query($koneksi, "SELECT * FROM barang WHERE jurusan = '$jurusan' DESC");
+            $data = mysqli_query($koneksi, "SELECT * FROM barang WHERE jurusan = '$jurusan' ORDER BY jurusan DESC");
         }
         $no = 1;
 		while($d = mysqli_fetch_array($data)){
